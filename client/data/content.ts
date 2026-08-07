@@ -48,7 +48,7 @@ export const brand = {
   phone: '+1 (000) 000-0000',
   bookingUrl: 'https://calendly.com/your-actual-link',
   // PR Team Website Link
-  gambitUrl: '/pr-team',
+  gambitUrl: 'https://6thcivilians-pr-project.vercel.app/',
   social: {
     linkedin: '#',
     instagram: 'https://www.instagram.com/_6th_civilians_?utm_source=qr&igsh=MWluMjhzMnA1MzN6cA=',
