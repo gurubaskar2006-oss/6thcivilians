@@ -1,0 +1,10 @@
+{
+  "name": "my-project-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --parallel -r dev",
+    "build": "pnpm --parallel -r build",
+    "start": "pnpm --parallel -r start"
+  }
+}
