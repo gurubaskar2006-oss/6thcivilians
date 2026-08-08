@@ -46,11 +46,11 @@ export default function Nav() {
             className="flex items-center gap-3"
             aria-label={`${brand.name} home`}
           >
-            <span className="glass-metal flex h-9 w-9 items-center justify-center">
-              <span className="font-display text-[11px] font-bold text-metal">
-                {brand.mark}
-              </span>
-            </span>
+            <img 
+              src="/pr-logo.png" 
+              alt="PR Team Logo" 
+              className="h-10 w-auto object-contain" 
+            />
             <span className="hidden font-display text-sm font-medium tracking-wide text-primary sm:block">
               {brand.name}
             </span>
