@@ -63,10 +63,34 @@ export default function ContactForm() {
     );
   }
 
-  async function onSubmit() {
-    await new Promise((resolve) => setTimeout(resolve, 900));
-    setSent(true);
-    reset();
+  async function onSubmit(data: FormValues) {
+    const formData = new FormData();
+    // Note: To send this to a different PR email, replace this access key with a new one generated for that email.
+    formData.append("access_key", "790a748b-739b-48fb-a7e7-35bf1ed94d92");
+    formData.append("name", data.name);
+    formData.append("email", data.email);
+    formData.append("message", data.message);
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      });
+
+      if (res.status === 200) {
+        setSent(true);
+        reset();
+      }
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   if (sent) {

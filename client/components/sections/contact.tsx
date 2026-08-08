@@ -13,11 +13,38 @@ const fieldClass =
 
 export function Contact() {
   const [sent, setSent] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // Wire this up to your email service / API route.
-    setSent(true)
+    setIsSubmitting(true)
+    
+    const formData = new FormData(e.currentTarget)
+    formData.append('access_key', '790a748b-739b-48fb-a7e7-35bf1ed94d92')
+    
+    const object = Object.fromEntries(formData)
+    const json = JSON.stringify(object)
+    
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: json
+      })
+      
+      if (res.status === 200) {
+        setSent(true)
+      } else {
+        console.error('Failed to send email')
+      }
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -134,8 +161,8 @@ export function Contact() {
                   </div>
                   <div className="pt-2 flex flex-col gap-3 sm:flex-row">
                     <div className="flex-1">
-                      <MagneticButton type="submit" className="w-full">
-                        Send Message
+                      <MagneticButton type="submit" className="w-full" disabled={isSubmitting}>
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
                       </MagneticButton>
                     </div>
                   </div>

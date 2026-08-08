@@ -19,6 +19,7 @@ type Props = {
   className?: string
   type?: 'button' | 'submit'
   'aria-label'?: string
+  disabled?: boolean
 }
 
 /** A button/link with a subtle magnetic pull toward the cursor + glow. */
@@ -29,6 +30,7 @@ export function MagneticButton({
   variant = 'primary',
   className,
   type = 'button',
+  disabled,
   ...rest
 }: Props) {
   const reduced = useIsReducedMotion()
@@ -59,7 +61,7 @@ export function MagneticButton({
       : 'border border-[#C9A24B]/40 text-[#C9A24B] hover:border-[#C9A24B] hover:bg-[#C9A24B]/5 hover:text-[#C9A24B]'
 
   const full = className?.includes('w-full')
-  const wrapperClass = cn('inline-flex', full && 'w-full')
+  const wrapperClass = cn('inline-flex', full && 'w-full', disabled && 'opacity-50 cursor-not-allowed pointer-events-none')
 
   const content = (
     <motion.span
@@ -85,7 +87,7 @@ export function MagneticButton({
   }
 
   return (
-    <button type={type} onClick={onClick} className={wrapperClass}>
+    <button type={type} onClick={onClick} className={wrapperClass} disabled={disabled}>
       {content}
     </button>
   )
