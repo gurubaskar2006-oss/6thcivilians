@@ -77,7 +77,7 @@ export function ScrollSequence({ progress, frameCount = 1080, framePath = '/fram
     let isCancelled = false
 
     const preloadAll = async () => {
-      const batchSize = 10
+      const batchSize = 2 // small batch size to prevent network clogging
       for (let i = 1; i <= frameCount; i += batchSize) {
         if (isCancelled) break
         
@@ -88,20 +88,17 @@ export function ScrollSequence({ progress, frameCount = 1080, framePath = '/fram
             const index = frame - 1
             if (!imagesRef.current[index]) {
               const img = new Image()
-              imagesRef.current[index] = img
               img.decoding = 'async'
               img.src = `${framePath}/frame_${frame.toString().padStart(4, '0')}.webp`
-              img.onload = async () => {
-                try {
-                  await img.decode()
-                } catch {}
-              }
+              // We just assign it but DO NOT call img.decode() here.
+              // Decoding 1000 images into memory will crash the browser.
+              imagesRef.current[index] = img
               hasNew = true
             }
           }
         }
         if (hasNew) {
-          await new Promise(resolve => setTimeout(resolve, 60))
+          await new Promise(resolve => setTimeout(resolve, 100))
         }
       }
     }
@@ -116,8 +113,9 @@ export function ScrollSequence({ progress, frameCount = 1080, framePath = '/fram
   // Render Loop via rAF
   useEffect(() => {
     const render = () => {
-      currentFrameRef.current += (targetFrameRef.current - currentFrameRef.current) * 0.15
-      const frameToDraw = Math.round(currentFrameRef.current)
+      // Use targetFrameRef directly. Framer motion already applies a spring physics smoothing.
+      // Applying another lerp here causes double-smoothing ("lag/rubber-banding").
+      const frameToDraw = targetFrameRef.current
 
       if (canvasRef.current && initialLoaded && lastDrawnFrameRef.current !== frameToDraw) {
         const ctx = canvasRef.current.getContext('2d', { alpha: false })
