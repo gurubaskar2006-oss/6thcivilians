@@ -71,44 +71,7 @@ export function ScrollSequence({ progress, frameCount = 1080, framePath = '/fram
     }
   })
 
-  // Background preloader for frames
-  useEffect(() => {
-    if (!initialLoaded) return
-    let isCancelled = false
 
-    const preloadAll = async () => {
-      const batchSize = 2 // small batch size to prevent network clogging
-      for (let i = 1; i <= frameCount; i += batchSize) {
-        if (isCancelled) break
-        
-        let hasNew = false
-        for (let j = 0; j < batchSize; j++) {
-          const frame = i + j
-          if (frame <= frameCount) {
-            const index = frame - 1
-            if (!imagesRef.current[index]) {
-              const img = new Image()
-              img.decoding = 'async'
-              img.src = `${framePath}/frame_${frame.toString().padStart(4, '0')}.webp`
-              // We just assign it but DO NOT call img.decode() here.
-              // Decoding 1000 images into memory will crash the browser.
-              imagesRef.current[index] = img
-              hasNew = true
-            }
-          }
-        }
-        if (hasNew) {
-          await new Promise(resolve => setTimeout(resolve, 100))
-        }
-      }
-    }
-    
-    preloadAll()
-    
-    return () => {
-      isCancelled = true
-    }
-  }, [initialLoaded, frameCount, framePath])
 
   // Render Loop via rAF
   useEffect(() => {
