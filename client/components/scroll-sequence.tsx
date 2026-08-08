@@ -17,7 +17,7 @@ export function ScrollSequence({ progress, frameCount = 1080, framePath = '/fram
   const targetFrameRef = useRef(0)
   const currentFrameRef = useRef(0)
   const lastDrawnFrameRef = useRef(-1)
-  const rAfRef = useRef<number>()
+  const rAfRef = useRef<number>(0)
 
   useEffect(() => {
     let isCancelled = false
@@ -66,10 +66,52 @@ export function ScrollSequence({ progress, frameCount = 1080, framePath = '/fram
 
     // Load window around current frame
     const center = frameIndex + 1
-    for (let i = center - 5; i <= center + 15; i++) {
+    for (let i = center - 15; i <= center + 40; i++) {
       loadFrame(i)
     }
   })
+
+  // Background preloader for frames
+  useEffect(() => {
+    if (!initialLoaded) return
+    let isCancelled = false
+
+    const preloadAll = async () => {
+      const batchSize = 10
+      for (let i = 1; i <= frameCount; i += batchSize) {
+        if (isCancelled) break
+        
+        let hasNew = false
+        for (let j = 0; j < batchSize; j++) {
+          const frame = i + j
+          if (frame <= frameCount) {
+            const index = frame - 1
+            if (!imagesRef.current[index]) {
+              const img = new Image()
+              imagesRef.current[index] = img
+              img.decoding = 'async'
+              img.src = `${framePath}/frame_${frame.toString().padStart(4, '0')}.webp`
+              img.onload = async () => {
+                try {
+                  await img.decode()
+                } catch {}
+              }
+              hasNew = true
+            }
+          }
+        }
+        if (hasNew) {
+          await new Promise(resolve => setTimeout(resolve, 60))
+        }
+      }
+    }
+    
+    preloadAll()
+    
+    return () => {
+      isCancelled = true
+    }
+  }, [initialLoaded, frameCount, framePath])
 
   // Render Loop via rAF
   useEffect(() => {
@@ -85,7 +127,7 @@ export function ScrollSequence({ progress, frameCount = 1080, framePath = '/fram
           
           // Fallback to nearest loaded frame if current isn't ready
           if (!img || !img.complete) {
-            for (let offset = 1; offset < 20; offset++) {
+            for (let offset = 1; offset < 100; offset++) {
               const prev = images[frameToDraw - offset]
               if (prev && prev.complete) { img = prev; break }
               const next = images[frameToDraw + offset]
