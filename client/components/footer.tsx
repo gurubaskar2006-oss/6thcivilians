@@ -27,8 +27,8 @@ export function Footer() {
                 </span>
               </div>
               <p className="mt-6 max-w-sm text-base leading-relaxed text-muted-foreground font-medium">
-                <span className="block">{brand.tagline}.</span>
-                <span className="block mt-2">Engineering end-to-end technology for the next reality.</span>
+                <span className="block">{brand.tagline}</span>
+                <span className="block mt-2">Engineering end-to-end technology for the next reality</span>
               </p>
             </div>
             

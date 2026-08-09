@@ -56,22 +56,7 @@ function ClusterBlock({
         )}
       >
         <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
-          <span
-            className={cn(
-              'inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 font-display text-[10px] tracking-brand uppercase transition-all duration-500',
-              inView
-                ? 'border-quantum/40 bg-quantum/10 text-quantum shadow-[0_0_18px_-6px_rgba(16,185,129,0.5)]'
-                : 'border-border bg-secondary/40 text-muted-foreground'
-            )}
-          >
-            <span
-              className={cn(
-                'h-1.5 w-1.5 rounded-full transition-colors',
-                inView ? 'bg-quantum animate-pulse' : 'bg-muted'
-              )}
-            />
-            Frames {range.from}–{range.to}
-          </span>
+
           <h3 className="font-display text-xl font-bold metallic-heading sm:text-2xl">{cluster.category}</h3>
           <span className="h-px flex-1 bg-gradient-to-r from-border/60 to-transparent" />
         </div>
