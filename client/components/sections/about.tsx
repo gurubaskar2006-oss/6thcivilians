@@ -73,7 +73,7 @@ export function About() {
               delay={idx + 1}
               className="glass-panel flex flex-col items-start justify-center gap-2 rounded-2xl p-8 transition-colors duration-300 hover:bg-secondary/25 h-full"
             >
-              <Counter value={s.value} suffix={s.suffix} raw={s.raw} />
+              <Counter value={s.value} suffix={s.suffix} />
               <span className="text-sm text-muted-foreground">{s.label}</span>
             </Reveal>
           ))}

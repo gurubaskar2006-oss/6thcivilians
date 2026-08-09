@@ -33,7 +33,7 @@ export function Reveal({
   style?: React.CSSProperties
 }) {
   const reduced = useIsReducedMotion()
-  const MotionTag = motion[as] as typeof motion.div
+  const MotionTag = motion[as as keyof typeof motion] as typeof motion.div
   
   if (reduced) {
     const Tag = as
