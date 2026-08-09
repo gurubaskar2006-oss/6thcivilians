@@ -51,8 +51,8 @@ export function Hero() {
           transition={{ delay: 2.4, duration: 0.9, ease: EASE }}
           className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
-          <MagneticButton href="#services">Explore Our Work</MagneticButton>
-          <MagneticButton href="#team" variant="ghost">
+          <MagneticButton href="#services-panel">Explore Our Work</MagneticButton>
+          <MagneticButton href="#team-panel" variant="ghost">
             Meet the Team
           </MagneticButton>
         </motion.div>

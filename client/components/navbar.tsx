@@ -48,7 +48,7 @@ export function Navbar() {
         </ul>
 
         <div className="hidden md:block">
-          <MagneticButton href="#contact">Start a Project</MagneticButton>
+          <MagneticButton href="#contact-panel">Start a Project</MagneticButton>
         </div>
 
         <button
@@ -77,7 +77,7 @@ export function Navbar() {
             ))}
             <li className="pt-2">
               <a
-                href="#contact"
+                href="#contact-panel"
                 onClick={() => setOpen(false)}
                 className="inline-flex w-full items-center justify-center rounded-full bg-quantum px-6 py-3 text-sm font-medium text-primary-foreground"
               >
