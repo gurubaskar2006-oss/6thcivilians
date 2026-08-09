@@ -151,7 +151,7 @@
   }
 
   .metallic-heading {
-    @apply text-transparent bg-clip-text bg-gradient-to-br from-foreground via-metal to-foreground/80 relative;
+    @apply text-foreground sm:text-transparent sm:bg-clip-text sm:bg-gradient-to-br sm:from-foreground sm:via-metal sm:to-foreground/80 relative;
   }
 }
 
