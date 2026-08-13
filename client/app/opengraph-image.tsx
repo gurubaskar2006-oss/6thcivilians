@@ -52,25 +52,6 @@ export default function Image() {
         >
           <div
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: 100,
-              height: 100,
-              borderRadius: 50,
-              background: 'rgba(57, 255, 138, 0.05)',
-              border: '2px solid rgba(0, 212, 255, 0.5)',
-              color: '#39FF8A',
-              fontSize: 64,
-              fontWeight: 800,
-              marginBottom: 40,
-            }}
-          >
-            6
-          </div>
-
-          <div
-            style={{
               fontSize: 84,
               fontWeight: 800,
               letterSpacing: '-0.05em',
