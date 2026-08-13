@@ -5,7 +5,6 @@ import {
   useEffect,
   useRef,
   type HTMLAttributes,
-  type LegacyRef,
 } from "react";
 import { useInView } from "framer-motion";
 import {
@@ -94,7 +93,7 @@ const ValueCard = forwardRef<HTMLElement, ValueCardProps>(
 
     return (
       <article
-        ref={ref as LegacyRef<HTMLElement>}
+        ref={ref}
         {...rest}
         className="glass-card flex w-[78vw] shrink-0 flex-col justify-between gap-16 p-8 sm:w-[380px] md:p-9"
       >
