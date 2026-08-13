@@ -19,6 +19,7 @@ export type Member = {
   initials: string;
   highlighted?: boolean;
   badge?: string;
+  image?: string;
 };
 
 export const members: Member[] = [
@@ -29,7 +30,8 @@ export const members: Member[] = [
       "Shapes the vision behind every partnership, turning ideas into lasting impact.",
     initials: "SA",
     highlighted: true,
-    badge: "Lead Partner",
+    badge: "Team Head",
+    image: "/team/sarath.jpeg",
   },
   {
     name: "Stanly Rumald",
@@ -37,6 +39,7 @@ export const members: Member[] = [
     focus:
       "Builds and nurtures relationships that stand the test of time.",
     initials: "SR",
+    image: "/team/stanly.jpeg",
   },
   {
     name: "Hemanth Sachin",
@@ -44,6 +47,7 @@ export const members: Member[] = [
     focus:
       "Crafts the voice that connects our story to every audience.",
     initials: "HS",
+    image: "/team/sachin.jpeg",
   },
   {
     name: "Santhosh",
@@ -51,6 +55,7 @@ export const members: Member[] = [
     focus:
       "Bridges trust between institutions and the people they serve.",
     initials: "SA",
+    image: "/team/santhosh.jpeg",
   },
   {
     name: "Sarveshwaran",
@@ -58,6 +63,7 @@ export const members: Member[] = [
     focus:
       "Keeps every moving part aligned, precise, and on point.",
     initials: "SW",
+    image: "/team/sarvesh.jpeg",
   },
   {
     name: "Selva Ganesh",
@@ -65,6 +71,7 @@ export const members: Member[] = [
     focus:
       "Expands our reach while keeping every connection genuine.",
     initials: "SG",
+    image: "/team/selva_ganesh.jpeg",
   },
 ];
 

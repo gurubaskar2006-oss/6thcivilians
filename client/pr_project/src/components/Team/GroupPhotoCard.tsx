@@ -68,10 +68,14 @@ export default function GroupPhotoCard() {
                 transform: `translateY(${[0, -14, 0][i] ?? 0}px)`,
               }}
             >
-              <span className="glass-metal flex h-14 w-14 items-center justify-center md:h-16 md:w-16">
-                <span className="font-display text-sm font-bold text-metal">
-                  {m.initials}
-                </span>
+              <span className="glass-metal flex h-20 w-20 items-center justify-center overflow-hidden md:h-24 md:w-24">
+                {m.image ? (
+                  <img src={m.image} alt={m.name} className="h-full w-full object-cover" />
+                ) : (
+                  <span className="font-display text-sm font-bold text-metal">
+                    {m.initials}
+                  </span>
+                )}
               </span>
               <span className="hidden text-[10px] uppercase tracking-[0.2em] text-muted md:block">
                 {m.title.split(" ")[0]}
@@ -83,10 +87,14 @@ export default function GroupPhotoCard() {
         <div className="flex items-center gap-6 md:gap-10">
           {rest.slice(3).map((m) => (
             <div key={m.name} className="flex flex-col items-center gap-3">
-              <span className="glass-metal flex h-14 w-14 items-center justify-center md:h-16 md:w-16">
-                <span className="font-display text-sm font-bold text-metal">
-                  {m.initials}
-                </span>
+              <span className="glass-metal flex h-20 w-20 items-center justify-center overflow-hidden md:h-24 md:w-24">
+                {m.image ? (
+                  <img src={m.image} alt={m.name} className="h-full w-full object-cover" />
+                ) : (
+                  <span className="font-display text-sm font-bold text-metal">
+                    {m.initials}
+                  </span>
+                )}
               </span>
               <span className="hidden text-[10px] uppercase tracking-[0.2em] text-muted md:block">
                 {m.title.split(" ")[0]}
@@ -94,10 +102,14 @@ export default function GroupPhotoCard() {
             </div>
           ))}
           <div className="flex flex-col items-center gap-3">
-            <span className="glass-metal flex h-20 w-20 items-center justify-center md:h-24 md:w-24">
-              <span className="font-display text-lg font-bold text-metal">
-                {featured.initials}
-              </span>
+            <span className="glass-metal flex h-28 w-28 items-center justify-center overflow-hidden md:h-36 md:w-36">
+              {featured.image ? (
+                <img src={featured.image} alt={featured.name} className="h-full w-full object-cover" />
+              ) : (
+                <span className="font-display text-lg font-bold text-metal">
+                  {featured.initials}
+                </span>
+              )}
             </span>
             <span className="rounded-chip border border-white/20 bg-white/[0.06] px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-secondary backdrop-blur-md">
               {featured.badge}

@@ -41,13 +41,17 @@ export default function MemberRow({
       <div className="flex min-w-0 flex-1 items-center gap-5 transition-transform duration-200 group-hover:translate-x-1">
         <span
           className={cn(
-            "avatar-disc flex shrink-0 items-center justify-center rounded-full",
+            "avatar-disc flex shrink-0 items-center justify-center rounded-full overflow-hidden",
             featured ? "avatar-disc-featured h-14 w-14 md:h-16 md:w-16" : "h-12 w-12",
           )}
         >
-          <span className="font-display text-sm font-bold text-metal md:text-base">
-            {member.initials}
-          </span>
+          {member.image ? (
+            <img src={member.image} alt={member.name} className="h-full w-full object-cover" />
+          ) : (
+            <span className="font-display text-sm font-bold text-metal md:text-base">
+              {member.initials}
+            </span>
+          )}
         </span>
 
         <div className="flex min-w-0 flex-1 flex-col gap-1">
