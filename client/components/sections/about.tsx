@@ -58,7 +58,7 @@ export function About() {
           </Reveal>
           <Reveal delay={0.3}>
             <p className="mt-6 max-w-xl text-pretty leading-relaxed text-muted-foreground">
-              6th Civilians delivers end-to-end technology solutions for startups, businesses,
+              6th Civilians Corporation delivers end-to-end technology solutions for startups, businesses,
               educational institutions, and enterprises. We bridge disciplined software engineering
               with emerging fields — quantum-inspired research, IoT, and EV technology — so every
               layer of your product is engineered with intent.

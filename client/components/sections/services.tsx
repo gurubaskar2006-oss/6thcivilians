@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { ArrowUpRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { serviceClusters, clusterFrameRanges, type ServiceCluster, type ServiceItem } from '@/data/content'
 import { Reveal, StaggerGroup, useTiltInteraction } from '@/components/motion'
@@ -56,18 +57,63 @@ function ClusterBlock({
         )}
       >
         <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
-
           <h3 className="font-display text-xl font-bold metallic-heading sm:text-2xl">{cluster.category}</h3>
           <span className="h-px flex-1 bg-gradient-to-r from-border/60 to-transparent" />
         </div>
 
-        <StaggerGroup className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {cluster.items.map((item, idx) => (
-            <Reveal key={item.title} delay={idx + 1}>
-              <ServiceCard item={item} />
-            </Reveal>
-          ))}
-        </StaggerGroup>
+        {cluster.subsections ? (
+          <div className="mt-8 flex flex-col gap-12">
+            {cluster.subsections.map((sub) => (
+              <div key={sub.title} className="flex flex-col">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <div className="flex items-center gap-2.5">
+                      <h4 className="font-display text-lg font-bold text-foreground sm:text-xl">
+                        {sub.title}
+                      </h4>
+                      {sub.badge && (
+                        <span className="rounded-full border border-quantum/40 bg-quantum/10 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-quantum shadow-[0_0_10px_-2px_rgba(0,212,255,0.25)]">
+                          {sub.badge}
+                        </span>
+                      )}
+                    </div>
+                    <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
+                      {sub.subtitle}
+                    </p>
+                  </div>
+
+                  {sub.url && (
+                    <a
+                      href={sub.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-2 self-start rounded-full border border-quantum/30 bg-quantum/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-quantum transition-all duration-300 hover:border-quantum hover:bg-quantum/20 hover:shadow-[0_0_15px_-3px_rgba(0,212,255,0.35)] hover:scale-105"
+                    >
+                      <span>Visit {sub.title}</span>
+                      <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </a>
+                  )}
+                </div>
+
+                <StaggerGroup className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {sub.items.map((item, idx) => (
+                    <Reveal key={item.title} delay={idx * 0.05 + 0.1}>
+                      <ServiceCard item={item} />
+                    </Reveal>
+                  ))}
+                </StaggerGroup>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <StaggerGroup className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {cluster.items.map((item, idx) => (
+              <Reveal key={item.title} delay={idx + 1}>
+                <ServiceCard item={item} />
+              </Reveal>
+            ))}
+          </StaggerGroup>
+        )}
       </div>
     </Reveal>
   )
@@ -85,8 +131,7 @@ export function Services() {
         </Reveal>
         <Reveal delay={1}>
           <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">
-            From pixels to firmware to quantum-inspired research — 25+ services grouped into four
-            disciplines, delivered by one aligned team.
+            From pixels to firmware to quantum-inspired research — deep-tech engineering delivered by 6th Civilians Corporation, alongside specialized education powered by Ewdth Academy.
           </p>
         </Reveal>
       </div>

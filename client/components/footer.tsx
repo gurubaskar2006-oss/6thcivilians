@@ -1,12 +1,18 @@
 'use client'
 
-import { brand, nav, serviceClusters } from '@/data/content'
+import { ArrowUpRight } from 'lucide-react'
+import { brand, nav } from '@/data/content'
 import { LogoMark } from '@/components/logo'
 import { LinkedInIcon, XIcon, InstagramIcon, FacebookIcon } from '@/components/social-icons'
 
 export function Footer() {
   const year = new Date().getFullYear()
-  const condensed = serviceClusters.map((c) => ({ title: c.category }))
+  const capabilities = [
+    'Software & Web',
+    'Cloud, AI & Data',
+    'Hardware & Emerging Tech',
+    'Enterprise Support',
+  ]
 
   return (
     <footer className="relative mt-24 border-t border-border bg-gradient-to-b from-transparent to-background/95 backdrop-blur-md">
@@ -14,7 +20,7 @@ export function Footer() {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-quantum/30 to-transparent" />
 
       <div className="mx-auto max-w-7xl px-6 pb-12 pt-16">
-        <div className="grid gap-16 md:grid-cols-[1.8fr_1fr_1fr_1fr]">
+        <div className="grid gap-12 sm:grid-cols-2 md:grid-cols-[1.6fr_1fr_1.1fr_1.1fr]">
           {/* brand block */}
           <div className="flex flex-col justify-between">
             <div>
@@ -22,13 +28,20 @@ export function Footer() {
                 <div className="glass-panel flex h-12 w-12 items-center justify-center rounded-xl ring-1 ring-border">
                   <LogoMark className="h-7 w-7" />
                 </div>
-                <span className="font-display text-xl font-bold tracking-tight text-foreground uppercase">
-                  6<span className="text-quantum font-light">th</span> Civilians
-                </span>
+                <div className="flex flex-col">
+                  <span className="font-display text-xl font-bold tracking-tight text-foreground uppercase">
+                    6<span className="text-quantum font-light">th</span> Civilians
+                  </span>
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                    Corporation
+                  </span>
+                </div>
               </div>
-              <p className="mt-6 max-w-sm text-base leading-relaxed text-muted-foreground font-medium">
-                <span className="block">{brand.tagline}</span>
-                <span className="block mt-2">Engineering end-to-end technology for the next reality</span>
+              <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground font-medium">
+                <span className="block text-foreground font-semibold">{brand.tagline}</span>
+                <span className="block mt-2 text-xs text-muted-foreground">
+                  Engineering end-to-end deep technology solutions for the next reality, empowering innovators and enterprises.
+                </span>
               </p>
             </div>
             
@@ -51,9 +64,9 @@ export function Footer() {
             </div>
           </div>
 
-          {/* nav */}
+          {/* Company nav */}
           <div>
-            <h4 className="font-display text-sm font-semibold tracking-brand text-foreground uppercase">Navigate</h4>
+            <h4 className="font-display text-sm font-semibold tracking-brand text-foreground uppercase">Company</h4>
             <ul className="mt-6 space-y-3.5">
               {nav.map((n) => (
                 <li key={n.href}>
@@ -66,14 +79,14 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* services */}
+          {/* capabilities */}
           <div>
             <h4 className="font-display text-sm font-semibold tracking-brand text-foreground uppercase">Capabilities</h4>
             <ul className="mt-6 space-y-3.5">
-              {condensed.map((s) => (
-                <li key={s.title}>
-                  <a href="#services" className="group relative inline-flex items-center text-sm font-medium text-muted-foreground transition-colors duration-300 hover:text-quantum">
-                    <span className="relative z-10">{s.title}</span>
+              {capabilities.map((s) => (
+                <li key={s}>
+                  <a href="#services-panel" className="group relative inline-flex items-center text-sm font-medium text-muted-foreground transition-colors duration-300 hover:text-quantum">
+                    <span className="relative z-10">{s}</span>
                     <span className="absolute -bottom-1 left-0 h-px w-0 bg-quantum/70 transition-all duration-300 group-hover:w-full" />
                   </a>
                 </li>
@@ -81,17 +94,46 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* contact */}
+          {/* ecosystem */}
           <div>
-            <h4 className="font-display text-sm font-semibold tracking-brand text-foreground uppercase">Connect</h4>
-            <ul className="mt-6 space-y-3.5 text-sm font-medium text-muted-foreground">
+            <h4 className="font-display text-sm font-semibold tracking-brand text-foreground uppercase">Ecosystem</h4>
+            <ul className="mt-6 space-y-4">
               <li>
-                <a href={`mailto:${brand.email}`} className="group relative inline-flex items-center transition-colors duration-300 hover:text-quantum">
-                  <span className="relative z-10">{brand.email}</span>
-                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-quantum/70 transition-all duration-300 group-hover:w-full" />
+                <a
+                  href={brand.academy.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex flex-col text-sm transition-colors duration-300 hover:text-quantum"
+                >
+                  <span className="inline-flex items-center gap-1.5 font-medium text-foreground group-hover:text-quantum">
+                    <span>{brand.academy.name}</span>
+                    <ArrowUpRight className="h-3.5 w-3.5 text-quantum transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </span>
+                  <span className="text-[11px] text-muted-foreground mt-0.5">Education & Mentorship</span>
                 </a>
               </li>
-
+              <li>
+                <a
+                  href={brand.gambit.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex flex-col text-sm transition-colors duration-300 hover:text-quantum"
+                >
+                  <span className="inline-flex items-center gap-1.5 font-medium text-foreground group-hover:text-quantum">
+                    <span>{brand.gambit.name} / PR</span>
+                    <ArrowUpRight className="h-3.5 w-3.5 text-quantum transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </span>
+                  <span className="text-[11px] text-muted-foreground mt-0.5">PR & Communications</span>
+                </a>
+              </li>
+              <li className="pt-3 border-t border-border/40">
+                <a
+                  href={`mailto:${brand.email}`}
+                  className="group inline-flex items-center text-xs font-medium text-muted-foreground transition-colors duration-300 hover:text-quantum"
+                >
+                  <span>{brand.email}</span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>

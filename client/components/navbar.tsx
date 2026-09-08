@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ArrowUpRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { nav } from '@/data/content'
+import { brand, nav } from '@/data/content'
 import { Wordmark } from '@/components/logo'
 import { MagneticButton } from '@/components/magnetic-button'
 
@@ -29,7 +29,7 @@ export function Navbar() {
       style={{ transitionTimingFunction: 'cubic-bezier(0.16,1,0.3,1)' }}
     >
       <nav className={cn('mx-auto flex max-w-7xl items-center justify-between px-6 transition-[padding] duration-500', scrolled ? 'py-2' : 'py-4')}>
-        <a href="#top" aria-label="6th Civilians home">
+        <a href="#top" aria-label="6th Civilians Corporation home">
           <Wordmark />
         </a>
 
@@ -47,7 +47,21 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-4 md:flex">
+          <a
+            href={brand.academy.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-1.5 rounded-full border border-quantum/30 bg-quantum/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-quantum transition-all duration-300 hover:border-quantum hover:bg-quantum/20 hover:shadow-[0_0_15px_-3px_rgba(0,212,255,0.35)] hover:scale-105"
+          >
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-quantum opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-quantum" />
+            </span>
+            <span>Ewdth Academy</span>
+            <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </a>
+
           <MagneticButton href="#contact-panel">Start a Project</MagneticButton>
         </div>
 
@@ -75,6 +89,21 @@ export function Navbar() {
                 </a>
               </li>
             ))}
+            <li className="pt-2">
+              <a
+                href={brand.academy.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-between rounded-xl border border-quantum/30 bg-quantum/10 px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-quantum"
+              >
+                <span className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-quantum" />
+                  Ewdth Academy
+                </span>
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+            </li>
             <li className="pt-2">
               <a
                 href="#contact-panel"

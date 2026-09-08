@@ -34,20 +34,34 @@ import {
 } from 'lucide-react'
 
 export const brand = {
-  name: '6th Civilians',
-  tagline: 'Quantum · Technology · Reality',
+  name: '6th Civilians Corporation',
+  tagline: 'Technology · Engineering · Innovation · Enterprise Solutions',
   // Hero headline options — swap freely.
-  headline: '6th Civilians — Deep Technology, Software & AI Engineering',
+  headline: '6th Civilians Corporation — Deep Technology, Software & AI Engineering',
   headlineAlternates: [
     'Engineering the Next Reality.',
     'Building Tomorrow, Particle by Particle.',
     'Deep Tech, Delivered End to End.',
   ],
   subheadline:
-    '6th Civilians is a deep-tech engineering studio focused on custom software, artificial intelligence, machine learning, IoT, cloud systems and emerging technology solutions.',
+    '6th Civilians Corporation is a deep-tech engineering studio and corporate parent focused on custom software, artificial intelligence, machine learning, IoT, cloud systems and enterprise technology solutions.',
   email: 'sixthciviliansoffical@gmail.com',
   phone: '+1 (000) 000-0000',
   bookingUrl: 'https://calendly.com/your-actual-link',
+  academy: {
+    name: 'Ewdth Academy',
+    url: process.env.NEXT_PUBLIC_ACADEMY_URL || 'https://academy.6thcivilians.com/',
+    relationship: 'A subsidiary of 6th Civilians Corporation',
+    tagline: 'Education, Skill Development & Engineering Mentorship',
+    description:
+      'The dedicated education and talent incubation arm of 6th Civilians Corporation, delivering hands-on industry skill programs, student project development, and engineering mentorship.',
+  },
+  gambit: {
+    name: 'Team Gambit',
+    url: 'https://pr.6thcivilians.com/',
+    relationship: 'PR & Communications Division',
+    tagline: 'Public Relations & Strategic Partnerships',
+  },
   // PR Team Website Link
   gambitUrl: 'https://pr.6thcivilians.com/',
   social: {
@@ -79,9 +93,18 @@ export type ServiceItem = {
   icon: LucideIcon
 }
 
+export type ServiceSubsection = {
+  title: string
+  subtitle: string
+  badge?: string
+  url?: string
+  items: ServiceItem[]
+}
+
 export type ServiceCluster = {
   id: string
   category: string
+  subsections?: ServiceSubsection[]
   items: ServiceItem[]
 }
 
@@ -137,14 +160,42 @@ export const serviceClusters: ServiceCluster[] = [
   },
   {
     id: 'growth',
-    category: 'Support & Growth',
+    category: 'Ewdth Academy & Enterprise Support',
+    subsections: [
+      {
+        title: 'Ewdth Academy',
+        subtitle: 'Education, Skill Development & Engineering Mentorship',
+        badge: 'Official Subsidiary',
+        url: brand.academy.url,
+        items: [
+          { title: 'Internship & Skill Development Programs', description: 'Hands-on technical training, industrial immersion, and skill programs for emerging engineering talent.', icon: GraduationCap },
+          { title: 'Technical Courses & Bootcamps', description: 'Intensive, industry-aligned technical curriculum covering modern development and deep tech.', icon: Code2 },
+          { title: 'Student Project Development', description: 'Guided technical architecture, execution, and prototyping for academic and research projects.', icon: FlaskConical },
+          { title: 'Project Mentorship', description: 'One-on-one engineering mentorship guiding builders from idea to working deployment.', icon: Rocket },
+          { title: 'Resume & Portfolio Engineering', description: 'High-impact technical resume structuring and portfolio building for engineering careers.', icon: FileText },
+          { title: 'Industry-Oriented Certifications', description: 'Validated credentials proving practical competency in modern software and technology stacks.', icon: ShieldCheck },
+        ],
+      },
+      {
+        title: 'Enterprise Support',
+        subtitle: 'Corporate Technology & Infrastructure Management',
+        items: [
+          { title: 'Technical Support & AMC', description: 'Proactive system maintenance, SLA-backed technical support, and Annual Maintenance Contracts for critical software.', icon: LifeBuoy },
+          { title: 'Business IT & Workspace Infrastructure', description: 'Enterprise workspace setup, business communications, cloud access, and organizational IT.', icon: Mail },
+          { title: 'Startup Technical Advisory', description: 'Strategic CTO-level advisory for emerging ventures, steering architecture and digital scalability.', icon: Boxes },
+        ],
+      },
+    ],
     items: [
-      { title: 'Technical Support & AMC', description: 'Proactive technical support and Annual Maintenance Contracts (AMC) for software systems.', icon: LifeBuoy },
-      { title: 'Internship & Skill Programs', description: 'Hands-on technical training and internship skill programs for emerging engineering talent.', icon: GraduationCap },
-      { title: 'Student Project Development', description: 'Guided technical development and mentorship for complex academic student projects.', icon: FlaskConical },
-      { title: 'Resume & Portfolio Development', description: 'Professional resume structuring and technical portfolio development for career growth.', icon: FileText },
-      { title: 'Business Workspace Setup', description: 'Professional business email, workspace configuration, and organizational IT setup.', icon: Mail },
-      { title: 'Startup Tech Consulting', description: 'Strategic technology consulting for startups, guiding digital products from idea to launch.', icon: Rocket },
+      { title: 'Internship & Skill Development Programs', description: 'Hands-on technical training, industrial immersion, and skill programs for emerging engineering talent.', icon: GraduationCap },
+      { title: 'Technical Courses & Bootcamps', description: 'Intensive, industry-aligned technical curriculum covering modern development and deep tech.', icon: Code2 },
+      { title: 'Student Project Development', description: 'Guided technical architecture, execution, and prototyping for academic and research projects.', icon: FlaskConical },
+      { title: 'Project Mentorship', description: 'One-on-one engineering mentorship guiding builders from idea to working deployment.', icon: Rocket },
+      { title: 'Resume & Portfolio Engineering', description: 'High-impact technical resume structuring and portfolio building for engineering careers.', icon: FileText },
+      { title: 'Industry-Oriented Certifications', description: 'Validated credentials proving practical competency in modern software and technology stacks.', icon: ShieldCheck },
+      { title: 'Technical Support & AMC', description: 'Proactive system maintenance, SLA-backed technical support, and Annual Maintenance Contracts for critical software.', icon: LifeBuoy },
+      { title: 'Business IT & Workspace Infrastructure', description: 'Enterprise workspace setup, business communications, cloud access, and organizational IT.', icon: Mail },
+      { title: 'Startup Technical Advisory', description: 'Strategic CTO-level advisory for emerging ventures, steering architecture and digital scalability.', icon: Boxes },
     ],
   },
 ]

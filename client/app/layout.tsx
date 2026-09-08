@@ -24,17 +24,18 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: '6th Civilians | Deep Tech, Software, AI & IoT Solutions',
+  title: '6th Civilians Corporation | Deep Tech, Software, AI & IoT Solutions',
   description:
-    '6th Civilians is a deep-tech studio engineering end-to-end solutions spanning custom software development, mobile apps, AI & machine learning, cloud architecture, IoT, and EV technology.',
+    '6th Civilians Corporation is a deep-tech engineering studio and corporate parent engineering end-to-end solutions spanning custom software development, mobile apps, AI & machine learning, cloud architecture, IoT, and enterprise technology.',
   generator: 'Next.js',
   keywords: [
     // Brand
+    '6th Civilians Corporation',
     '6th Civilians',
     '6thcivilians',
-    '6th Civilians technology',
-    '6th Civilians software',
-    '6th Civilians deep tech',
+    '6th Civilians Corporation technology',
+    '6th Civilians Corporation software',
+    '6th Civilians Corporation deep tech',
 
     // Core positioning
     'deep tech',
@@ -98,9 +99,9 @@ export const metadata: Metadata = {
     'advanced technology solutions',
     'first-principles engineering',
   ],
-  authors: [{ name: '6th Civilians' }],
-  creator: '6th Civilians',
-  publisher: '6th Civilians',
+  authors: [{ name: '6th Civilians Corporation' }],
+  creator: '6th Civilians Corporation',
+  publisher: '6th Civilians Corporation',
   formatDetection: {
     email: false,
     address: false,
@@ -124,17 +125,17 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
   },
   openGraph: {
-    title: '6th Civilians | Deep Tech, Software, AI & IoT Solutions',
+    title: '6th Civilians Corporation | Deep Tech, Software, AI & IoT Solutions',
     description:
       'A deep-tech studio delivering software, cloud, AI, IoT, and quantum-inspired solutions from first principles to production.',
     url: 'https://6thcivilians.com',
-    siteName: '6th Civilians',
+    siteName: '6th Civilians Corporation',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: '6th Civilians | Deep Tech & Software Engineering',
+    title: '6th Civilians Corporation | Deep Tech & Software Engineering',
     description: 'A deep-tech studio delivering software, cloud, AI, IoT, and quantum-inspired solutions end to end.',
   },
   robots: {
@@ -162,23 +163,32 @@ export default function RootLayout({
 }>) {
   const organizationSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': 'Corporation',
     '@id': 'https://6thcivilians.com/#organization',
-    name: '6th Civilians',
+    name: '6th Civilians Corporation',
     url: 'https://6thcivilians.com',
     logo: 'https://6thcivilians.com/icon.png',
     description:
-      '6th Civilians is a deep-tech engineering studio focused on software, artificial intelligence, machine learning, IoT, cloud and emerging technology solutions.',
+      '6th Civilians Corporation is a deep-tech engineering studio focused on software, artificial intelligence, machine learning, IoT, cloud, and emerging technology solutions.',
+    subOrganization: [
+      {
+        '@type': 'EducationalOrganization',
+        name: 'Ewdth Academy',
+        url: 'https://academy.6thcivilians.com',
+        description: 'Education, skill development, and engineering mentorship subsidiary of 6th Civilians Corporation.',
+      },
+    ],
   }
 
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     '@id': 'https://6thcivilians.com/#website',
-    name: '6th Civilians',
+    name: '6th Civilians Corporation',
     alternateName: [
+      '6th Civilians',
       '6C',
-      '6thcivilians'
+      '6thcivilians',
     ],
     url: 'https://6thcivilians.com',
     publisher: {
