@@ -17,6 +17,10 @@ export function AcademySection() {
 
           <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-2xl">
+              <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.25em] text-emerald-400/90 block mb-3">
+                Beyond Technology.
+              </span>
+
               <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-4">
                 <GraduationCap className="h-3.5 w-3.5" />
                 <span>{brand.academy.division}</span>
@@ -42,7 +46,7 @@ export function AcademySection() {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-6 py-3.5 text-sm font-semibold text-emerald-400 transition-all duration-300 hover:border-emerald-400 hover:bg-emerald-500/20 hover:shadow-[0_0_20px_-3px_rgba(16,185,129,0.3)] hover:scale-[1.02]"
               >
-                <span>Visit Ewdth Academy</span>
+                <span>Visit EWDTH Academy</span>
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
             </div>

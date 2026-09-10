@@ -1,12 +1,13 @@
 'use client'
 
 import { useState } from 'react'
-import { Mail, Check } from 'lucide-react'
+import { Mail, Check, Sparkles } from 'lucide-react'
 import { brand, projectTypes, engagementModels } from '@/data/content'
-import { Reveal } from '@/components/motion'
+import { Reveal, useIsReducedMotion } from '@/components/motion'
 import { SectionLabel } from '@/components/section-label'
 import { MagneticButton } from '@/components/magnetic-button'
 import { cn } from '@/lib/utils'
+import { motion } from 'framer-motion'
 
 const fieldClass =
   'w-full rounded-xl border border-border bg-secondary/35 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground outline-none transition-all duration-300 focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400/50 focus:shadow-[0_0_10px_-3px_rgba(16,185,129,0.2)]'
@@ -14,6 +15,7 @@ const fieldClass =
 export function Contact() {
   const [sent, setSent] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const reduced = useIsReducedMotion()
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -49,6 +51,47 @@ export function Contact() {
 
   return (
     <section id="contact" className="relative overflow-hidden w-full py-28 border-t border-border/40">
+      {/* Subtle animated background geometry */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center overflow-hidden"
+      >
+        {/* Subtle grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#10b98108_1px,transparent_1px),linear-gradient(to_bottom,#10b98108_1px,transparent_1px)] bg-[size:32px_32px]" />
+
+        {/* Ambient radial glow */}
+        <div className="h-[500px] w-[800px] rounded-full bg-gradient-to-tr from-emerald-500/10 via-cyan-500/5 to-transparent blur-[140px] opacity-60" />
+
+        {/* Rotating technical orbital ring */}
+        {!reduced && (
+          <motion.svg
+            className="absolute h-[650px] w-[650px] opacity-20"
+            viewBox="0 0 400 400"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
+          >
+            <circle
+              cx="200"
+              cy="200"
+              r="180"
+              fill="none"
+              stroke="#10b981"
+              strokeWidth="0.75"
+              strokeDasharray="6 12"
+            />
+            <circle
+              cx="200"
+              cy="200"
+              r="130"
+              fill="none"
+              stroke="#06b6d4"
+              strokeWidth="0.5"
+              strokeDasharray="4 8"
+            />
+          </motion.svg>
+        )}
+      </div>
+
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           {/* Left Column: Heading & Details */}
@@ -71,14 +114,14 @@ export function Contact() {
 
             <Reveal delay={0.2}>
               <div className="mt-8 space-y-3">
-                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/80 block">
+                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/80 block font-mono">
                   Engagement Models
                 </span>
                 <div className="grid gap-3 sm:grid-cols-3">
                   {engagementModels.map((model) => (
                     <div
                       key={model.title}
-                      className="rounded-xl border border-white/5 bg-white/[0.02] p-4 transition-colors hover:border-emerald-500/30"
+                      className="rounded-xl border border-white/5 bg-white/[0.02] p-4 transition-all hover:border-emerald-500/30 hover:bg-white/[0.04]"
                     >
                       <h3 className="font-display text-xs font-bold text-foreground">
                         {model.title}
@@ -94,7 +137,7 @@ export function Contact() {
 
             <Reveal delay={0.3}>
               <div className="mt-8 flex flex-col gap-3">
-                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/80">
+                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/80 font-mono">
                   Direct Inquiries
                 </span>
                 <a
@@ -202,10 +245,16 @@ export function Contact() {
                     />
                   </div>
 
-                  <div className="pt-2">
-                    <MagneticButton type="submit" className="w-full" disabled={isSubmitting}>
+                  <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                    <MagneticButton type="submit" className="flex-1" disabled={isSubmitting}>
                       {isSubmitting ? 'Submitting Inquiry...' : 'Start a Conversation'}
                     </MagneticButton>
+                    <a
+                      href={`mailto:${brand.email}`}
+                      className="inline-flex items-center justify-center rounded-xl border border-white/10 px-5 py-3 text-xs font-semibold text-zinc-300 transition-colors hover:border-emerald-500/40 hover:text-white"
+                    >
+                      Contact Us Directly
+                    </a>
                   </div>
                 </form>
               )}

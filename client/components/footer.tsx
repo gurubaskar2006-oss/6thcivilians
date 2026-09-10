@@ -9,11 +9,9 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   const companyLinks = [
-    { label: 'Corporate Profile', href: '#about' },
-    { label: 'Capabilities', href: '#services' },
-    { label: 'Solutions & Verticals', href: '#solutions' },
-    { label: 'Selected Work', href: '#projects' },
-    { label: 'Vision & Leadership', href: '#company' },
+    { label: 'About', href: '#about' },
+    { label: 'Projects', href: '#projects' },
+    { label: 'Careers', href: '#contact' },
     { label: 'Contact', href: '#contact' },
   ]
 
@@ -69,12 +67,12 @@ export function Footer() {
 
           {/* Company nav */}
           <div>
-            <h4 className="font-display text-xs font-bold tracking-[0.2em] text-foreground uppercase">
+            <h4 className="font-display text-xs font-bold tracking-[0.2em] text-foreground uppercase font-mono">
               Company
             </h4>
             <ul className="mt-5 space-y-2.5">
               {companyLinks.map((item) => (
-                <li key={item.href}>
+                <li key={item.label}>
                   <a
                     href={item.href}
                     className="text-xs text-muted-foreground transition-colors hover:text-emerald-400"
@@ -88,7 +86,7 @@ export function Footer() {
 
           {/* Capabilities */}
           <div>
-            <h4 className="font-display text-xs font-bold tracking-[0.2em] text-foreground uppercase">
+            <h4 className="font-display text-xs font-bold tracking-[0.2em] text-foreground uppercase font-mono">
               Services
             </h4>
             <ul className="mt-5 space-y-2.5">
@@ -107,7 +105,7 @@ export function Footer() {
 
           {/* Ecosystem & Divisions */}
           <div>
-            <h4 className="font-display text-xs font-bold tracking-[0.2em] text-foreground uppercase">
+            <h4 className="font-display text-xs font-bold tracking-[0.2em] text-foreground uppercase font-mono">
               Ecosystem
             </h4>
             <ul className="mt-5 space-y-4">
@@ -122,7 +120,7 @@ export function Footer() {
                     <span>{brand.academy.name}</span>
                     <ArrowUpRight className="h-3.5 w-3.5 text-emerald-400 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </span>
-                  <span className="text-[11px] text-muted-foreground mt-0.5">
+                  <span className="text-[11px] text-muted-foreground mt-0.5 font-mono">
                     {brand.academy.division}
                   </span>
                 </a>
@@ -138,19 +136,19 @@ export function Footer() {
                     <span>{brand.gambit.name}</span>
                     <ArrowUpRight className="h-3.5 w-3.5 text-emerald-400 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </span>
-                  <span className="text-[11px] text-muted-foreground mt-0.5">
+                  <span className="text-[11px] text-muted-foreground mt-0.5 font-mono">
                     {brand.gambit.division}
                   </span>
                 </a>
               </li>
               <li className="pt-3 border-t border-white/5">
-                <span className="text-[10px] uppercase tracking-wider text-muted-foreground/80 block mb-1">
+                <span className="text-[10px] uppercase tracking-wider text-muted-foreground/80 block mb-1 font-mono">
                   Legal
                 </span>
                 <div className="flex gap-3 text-xs text-muted-foreground">
-                  <a href="#about" className="hover:text-emerald-400 transition-colors">Privacy Policy</a>
+                  <a href="#about" className="hover:text-emerald-400 transition-colors">Privacy</a>
                   <span>·</span>
-                  <a href="#about" className="hover:text-emerald-400 transition-colors">Terms of Service</a>
+                  <a href="#about" className="hover:text-emerald-400 transition-colors">Terms</a>
                 </div>
               </li>
             </ul>
