@@ -153,6 +153,20 @@
   .metallic-heading {
     @apply text-foreground sm:text-transparent sm:bg-clip-text sm:bg-gradient-to-br sm:from-foreground sm:via-metal sm:to-foreground/80 relative;
   }
+
+  .tech-grid {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  }
+
+  .tech-grid-dense {
+    background-size: 20px 20px;
+    background-image: 
+      linear-gradient(to right, rgba(16, 185, 129, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(16, 185, 129, 0.04) 1px, transparent 1px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

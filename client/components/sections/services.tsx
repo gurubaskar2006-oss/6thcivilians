@@ -1,16 +1,12 @@
 'use client'
 
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { serviceClusters, clusterFrameRanges, type ServiceCluster, type ServiceItem } from '@/data/content'
+import { capabilityGroups, type CapabilityGroup, type CapabilityItem } from '@/data/content'
 import { Reveal, StaggerGroup, useTiltInteraction } from '@/components/motion'
 import { SectionLabel } from '@/components/section-label'
+import { motion } from 'framer-motion'
 
-function ServiceCard({ item }: { item: ServiceItem }) {
+function CapabilityCard({ item }: { item: CapabilityItem }) {
   const { ref, onMove, reset, style } = useTiltInteraction()
-
   const Icon = item.icon
 
   return (
@@ -19,126 +15,75 @@ function ServiceCard({ item }: { item: ServiceItem }) {
       onMouseMove={onMove}
       onMouseLeave={reset}
       style={style}
-      className="quantum-border grain glass-panel group relative h-full overflow-hidden rounded-2xl p-6"
+      className="group relative flex flex-col justify-between rounded-2xl border border-white/5 bg-zinc-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/40 hover:bg-zinc-900/70"
     >
-      <div
-        className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
-        style={{ background: 'radial-gradient(circle, rgba(0, 212, 255,0.1), transparent 70%)' }}
-      />
-      <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-secondary text-quantum transition-all duration-500 group-hover:border-quantum/50 group-hover:bg-quantum/5 group-hover:shadow-[0_0_10px_-3px_rgba(0,212,255,0.15)]">
-        <Icon className="h-5 w-5 transition-transform duration-500 group-hover:rotate-[15deg] group-hover:scale-110" strokeWidth={1.6} />
+      <div>
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-border/60 bg-secondary/30 text-emerald-400 transition-all duration-300 group-hover:border-emerald-400/50 group-hover:bg-emerald-500/10">
+          <Icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.75} />
+        </div>
+        <h4 className="mt-4 font-display text-base font-semibold text-foreground">
+          {item.title}
+        </h4>
+        <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+          {item.description}
+        </p>
       </div>
-      <h3 className="mt-5 font-display text-base font-semibold metallic-heading">{item.title}</h3>
-      <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
     </motion.div>
   )
 }
 
-function ClusterBlock({
-  cluster,
-  range,
-  index,
-}: {
-  cluster: ServiceCluster
-  range: { from: number; to: number }
-  index: number
-}) {
-  const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { margin: '-45% 0px -45% 0px' })
-
+function CapabilityGroupBlock({ group }: { group: CapabilityGroup }) {
   return (
-    <Reveal>
-      <div
-        ref={ref}
-        id={`services-${cluster.id}`}
-        className={cn(
-          'relative py-10 transition-opacity duration-500 min-h-[80vh] flex flex-col justify-center',
-          index > 0 && 'border-t border-white/5'
-        )}
-      >
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
-          <h3 className="font-display text-xl font-bold metallic-heading sm:text-2xl">{cluster.category}</h3>
-          <span className="h-px flex-1 bg-gradient-to-r from-border/60 to-transparent" />
+    <div className="flex flex-col border-t border-white/5 pt-12 first:border-none first:pt-0">
+      <div className="flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between">
+        <div className="flex items-center gap-3">
+          <span className="font-display text-xs font-semibold tracking-[0.2em] text-emerald-400 uppercase">
+            {group.number}
+          </span>
+          <span className="h-1 w-1 rounded-full bg-emerald-400/60" />
+          <h3 className="font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+            {group.category}
+          </h3>
         </div>
-
-        {cluster.subsections ? (
-          <div className="mt-8 flex flex-col gap-12">
-            {cluster.subsections.map((sub) => (
-              <div key={sub.title} className="flex flex-col">
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                  <div>
-                    <div className="flex items-center gap-2.5">
-                      <h4 className="font-display text-lg font-bold text-foreground sm:text-xl">
-                        {sub.title}
-                      </h4>
-                      {sub.badge && (
-                        <span className="rounded-full border border-quantum/40 bg-quantum/10 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-quantum shadow-[0_0_10px_-2px_rgba(0,212,255,0.25)]">
-                          {sub.badge}
-                        </span>
-                      )}
-                    </div>
-                    <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
-                      {sub.subtitle}
-                    </p>
-                  </div>
-
-                  {sub.url && (
-                    <a
-                      href={sub.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-2 self-start rounded-full border border-quantum/30 bg-quantum/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-quantum transition-all duration-300 hover:border-quantum hover:bg-quantum/20 hover:shadow-[0_0_15px_-3px_rgba(0,212,255,0.35)] hover:scale-105"
-                    >
-                      <span>Visit {sub.title}</span>
-                      <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                    </a>
-                  )}
-                </div>
-
-                <StaggerGroup className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {sub.items.map((item, idx) => (
-                    <Reveal key={item.title} delay={idx * 0.05 + 0.1}>
-                      <ServiceCard item={item} />
-                    </Reveal>
-                  ))}
-                </StaggerGroup>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <StaggerGroup className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {cluster.items.map((item, idx) => (
-              <Reveal key={item.title} delay={idx + 1}>
-                <ServiceCard item={item} />
-              </Reveal>
-            ))}
-          </StaggerGroup>
-        )}
+        <p className="text-xs text-muted-foreground sm:text-sm max-w-md">
+          {group.tagline}
+        </p>
       </div>
-    </Reveal>
+
+      <StaggerGroup className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        {group.items.map((item, idx) => (
+          <Reveal key={item.title} delay={idx * 0.05}>
+            <CapabilityCard item={item} />
+          </Reveal>
+        ))}
+      </StaggerGroup>
+    </div>
   )
 }
 
 export function Services() {
   return (
-    <section id="services-panel" className="relative mx-auto max-w-7xl px-6 w-full py-24">
-      <div className="max-w-2xl">
-        <SectionLabel index="03" label="Capabilities" />
+    <section id="services" className="relative mx-auto max-w-7xl px-6 w-full py-28 border-t border-border/40">
+      <div className="max-w-3xl">
+        <SectionLabel index="02" label="Capabilities" />
         <Reveal>
-          <h2 className="mt-6 font-display text-3xl font-bold leading-tight text-balance metallic-heading sm:text-4xl md:text-5xl">
-            One studio, the full technology stack.
+          <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl leading-[1.12]">
+            Disciplined technology capabilities{' '}
+            <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
+              engineered for scale.
+            </span>
           </h2>
         </Reveal>
-        <Reveal delay={1}>
-          <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">
-            From pixels to firmware to quantum-inspired research — deep-tech engineering delivered by 6th Civilians Corporation, alongside specialized education powered by Ewdth Academy.
+        <Reveal delay={0.1}>
+          <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Our software engineering practice spans the entire application lifecycle — from custom operational systems and applied machine learning to scalable cloud topologies and technology consulting.
           </p>
         </Reveal>
       </div>
 
-      <div className="mt-12 flex flex-col gap-[40vh]">
-        {serviceClusters.map((cluster, i) => (
-          <ClusterBlock key={cluster.id} cluster={cluster} range={clusterFrameRanges[i] ?? { from: 500, to: 888 }} index={i} />
+      <div className="mt-16 flex flex-col gap-16">
+        {capabilityGroups.map((group) => (
+          <CapabilityGroupBlock key={group.id} group={group} />
         ))}
       </div>
     </section>

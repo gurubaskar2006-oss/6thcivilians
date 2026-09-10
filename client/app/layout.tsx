@@ -24,80 +24,52 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: '6th Civilians Corporation | Deep Tech, Software, AI & IoT Solutions',
+  title: '6th Civilians Corporation | Enterprise Software, AI & Cloud Engineering',
   description:
-    '6th Civilians Corporation is a deep-tech engineering studio and corporate parent engineering end-to-end solutions spanning custom software development, mobile apps, AI & machine learning, cloud architecture, IoT, and enterprise technology.',
+    '6th Civilians Corporation is a premier technology corporation engineering custom enterprise software, artificial intelligence systems, cloud architectures, and digital products.',
   generator: 'Next.js',
   keywords: [
     // Brand
     '6th Civilians Corporation',
+    '6th Civilians Corp',
     '6th Civilians',
     '6thcivilians',
     '6th Civilians Corporation technology',
     '6th Civilians Corporation software',
-    '6th Civilians Corporation deep tech',
-
-    // Core positioning
-    'deep tech',
-    'deep tech studio',
-    'deep tech company',
-    'deep tech solutions',
-    'deep technology',
-    'technology innovation',
-    'technology solutions',
-    'technology consulting',
+    '6th Civilians Corporation enterprise systems',
 
     // Software engineering
-    'software engineering',
-    'software engineering services',
-    'custom software development',
-    'custom software solutions',
-    'software development company',
+    'software engineering corporation',
+    'enterprise software development',
+    'custom software engineering',
     'software product development',
     'web application development',
-    'business application development',
-    'API development',
-    'custom API development',
+    'backend systems engineering',
+    'API development and integration',
+    'cloud-native software architecture',
 
     // Artificial intelligence
-    'artificial intelligence',
-    'AI solutions',
-    'AI development',
-    'AI software development',
-    'AI engineering',
-    'machine learning development',
-    'machine learning solutions',
-    'AI integration',
+    'artificial intelligence solutions',
+    'applied machine learning',
+    'generative AI systems',
+    'intelligent automation software',
+    'enterprise AI engineering',
+    'autonomous agent workflows',
 
-    // IoT
-    'IoT solutions',
-    'IoT development',
-    'IoT software development',
-    'IoT product development',
-    'IoT systems',
-    'IoT engineering',
-    'connected device development',
-
-    // Cloud
+    // Cloud & infrastructure
     'cloud solutions',
-    'cloud architecture',
-    'cloud application development',
-    'cloud engineering',
-    'cloud infrastructure',
+    'cloud infrastructure architecture',
+    'DevOps engineering',
+    'CI/CD automation',
+    'system architecture consulting',
+    'distributed systems',
 
-    // Applications
-    'mobile app development',
-    'mobile application development',
-    'Android app development',
-    'iOS app development',
-    'custom mobile app development',
-
-    // Emerging / specialized technology
-    'quantum-inspired technology',
-    'quantum-inspired solutions',
-    'emerging technology',
-    'advanced technology solutions',
-    'first-principles engineering',
+    // Digital products & consulting
+    'digital product development',
+    'SaaS platform engineering',
+    'UI/UX engineering',
+    'technology consulting',
+    'digital transformation advisory',
   ],
   authors: [{ name: '6th Civilians Corporation' }],
   creator: '6th Civilians Corporation',
@@ -119,15 +91,15 @@ export const metadata: Metadata = {
       { url: '/icon-64x64.png', sizes: '64x64', type: 'image/png' },
       { url: '/icon-96x96.png', sizes: '96x96', type: 'image/png' },
       { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/favicon.ico', sizes: 'any' }, // fallback
+      { url: '/favicon.ico', sizes: 'any' },
     ],
     apple: '/apple-icon.png',
     shortcut: '/favicon.ico',
   },
   openGraph: {
-    title: '6th Civilians Corporation | Deep Tech, Software, AI & IoT Solutions',
+    title: '6th Civilians Corporation | Enterprise Software, AI & Cloud Engineering',
     description:
-      'A deep-tech studio delivering software, cloud, AI, IoT, and quantum-inspired solutions from first principles to production.',
+      '6th Civilians Corporation builds custom software, enterprise systems, AI-driven architectures, and scalable cloud solutions for organizations.',
     url: 'https://6thcivilians.com',
     siteName: '6th Civilians Corporation',
     locale: 'en_US',
@@ -135,8 +107,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '6th Civilians Corporation | Deep Tech & Software Engineering',
-    description: 'A deep-tech studio delivering software, cloud, AI, IoT, and quantum-inspired solutions end to end.',
+    title: '6th Civilians Corporation | Enterprise Software & AI Engineering',
+    description:
+      'Engineering enterprise software, intelligent systems, digital products, and cloud infrastructure for organizations.',
   },
   robots: {
     index: true,
@@ -169,13 +142,13 @@ export default function RootLayout({
     url: 'https://6thcivilians.com',
     logo: 'https://6thcivilians.com/icon.png',
     description:
-      '6th Civilians Corporation is a deep-tech engineering studio focused on software, artificial intelligence, machine learning, IoT, cloud, and emerging technology solutions.',
-    subOrganization: [
+      '6th Civilians Corporation is a technology corporation focused on enterprise software development, artificial intelligence systems, cloud architectures, and digital product engineering.',
+    department: [
       {
         '@type': 'EducationalOrganization',
         name: 'Ewdth Academy',
         url: 'https://academy.6thcivilians.com',
-        description: 'Education, skill development, and engineering mentorship subsidiary of 6th Civilians Corporation.',
+        description: 'Ewdth Academy — Education Division of 6th Civilians Corporation, delivering technical training and talent development.',
       },
     ],
   }
@@ -186,6 +159,7 @@ export default function RootLayout({
     '@id': 'https://6thcivilians.com/#website',
     name: '6th Civilians Corporation',
     alternateName: [
+      '6th Civilians Corp',
       '6th Civilians',
       '6C',
       '6thcivilians',

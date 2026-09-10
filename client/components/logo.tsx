@@ -23,12 +23,12 @@ export function LogoMark({ className, animated = false }: { className?: string; 
 export function Wordmark({ className }: { className?: string }) {
   return (
     <span className={cn('flex items-center gap-3', className)}>
-      <LogoMark className="h-11 w-11 shrink-0" />
-      <span className="flex flex-col leading-none">
-        <span className="application-header-title bg-gradient-to-r from-emerald-400 via-green-300 to-teal-500 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(52,211,153,0.3)] text-base font-bold sm:text-lg">
+      <LogoMark className="h-10 w-10 shrink-0" />
+      <span className="flex flex-col leading-tight">
+        <span className="font-display text-base font-bold tracking-tight text-foreground sm:text-lg">
           6th Civilians
         </span>
-        <span className="text-[9.5px] font-semibold uppercase tracking-[0.24em] text-muted-foreground/80 mt-0.5">
+        <span className="text-[10px] font-semibold uppercase tracking-[0.26em] text-emerald-400">
           Corporation
         </span>
       </span>
