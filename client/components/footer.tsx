@@ -10,42 +10,41 @@ export function Footer() {
 
   const companyLinks = [
     { label: 'About', href: '#about' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Careers', href: '#contact' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Capabilities', href: '#services' },
+    { label: 'Solutions', href: '#solutions' },
+    { label: 'Selected Work', href: '#projects' },
+    { label: 'Company Leadership', href: '#company' },
+    { label: 'Inquiries', href: '#contact' },
   ]
 
   return (
-    <footer className="relative border-t border-border/60 bg-zinc-950 text-foreground">
-      {/* Top subtle glow divider */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent" />
-
+    <footer className="relative border-t border-border bg-background text-foreground">
       <div className="mx-auto max-w-7xl px-6 pb-12 pt-16">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1.2fr_1.1fr]">
-          {/* Brand block */}
-          <div className="flex flex-col justify-between">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-12">
+          {/* Brand block (5 cols) */}
+          <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3">
-                <LogoMark className="h-10 w-10 shrink-0" />
+                <LogoMark className="h-9 w-9 shrink-0" />
                 <div className="flex flex-col leading-tight">
                   <span className="font-display text-lg font-bold tracking-tight text-foreground">
                     6th Civilians
                   </span>
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.26em] text-emerald-400">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-emerald-500 font-mono">
                     Corporation
                   </span>
                 </div>
               </div>
 
               <p className="mt-5 max-w-sm text-xs leading-relaxed text-muted-foreground">
-                <span className="block text-foreground font-semibold text-sm mb-1.5">
+                <span className="block text-foreground font-semibold text-sm mb-1">
                   {brand.tagline}
                 </span>
                 6th Civilians Corporation is a premier technology corporation delivering custom enterprise software, applied AI architectures, scalable cloud infrastructure, and engineering consulting.
               </p>
             </div>
 
-            <div className="mt-8 flex items-center gap-3">
+            <div className="mt-8 flex items-center gap-2.5">
               {[
                 { icon: LinkedInIcon, href: brand.social.linkedin, label: 'LinkedIn' },
                 { icon: InstagramIcon, href: brand.social.instagram, label: 'Instagram' },
@@ -57,25 +56,25 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.02] text-muted-foreground transition-all duration-300 hover:scale-105 hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:text-emerald-400"
+                  className="flex h-8 w-8 items-center justify-center border border-border text-zinc-400 transition-colors hover:border-zinc-400 hover:text-white"
                 >
-                  <Icon className="h-4 w-4" />
+                  <Icon className="h-3.5 w-3.5" />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Company nav */}
-          <div>
-            <h4 className="font-display text-xs font-bold tracking-[0.2em] text-foreground uppercase font-mono">
-              Company
+          {/* Company nav (2 cols) */}
+          <div className="lg:col-span-2">
+            <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-foreground">
+              DIRECTORY
             </h4>
-            <ul className="mt-5 space-y-2.5">
+            <ul className="mt-4 space-y-2">
               {companyLinks.map((item) => (
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    className="text-xs text-muted-foreground transition-colors hover:text-emerald-400"
+                    className="text-xs text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {item.label}
                   </a>
@@ -84,17 +83,17 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Capabilities */}
-          <div>
-            <h4 className="font-display text-xs font-bold tracking-[0.2em] text-foreground uppercase font-mono">
-              Services
+          {/* Capabilities (3 cols) */}
+          <div className="lg:col-span-3">
+            <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-foreground">
+              PRACTICES
             </h4>
-            <ul className="mt-5 space-y-2.5">
+            <ul className="mt-4 space-y-2">
               {capabilityGroups.map((group) => (
                 <li key={group.id}>
                   <a
                     href="#services"
-                    className="text-xs text-muted-foreground transition-colors hover:text-emerald-400"
+                    className="text-xs text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {group.category}
                   </a>
@@ -103,24 +102,24 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Ecosystem & Divisions */}
-          <div>
-            <h4 className="font-display text-xs font-bold tracking-[0.2em] text-foreground uppercase font-mono">
-              Ecosystem
+          {/* Ecosystem & Divisions (2 cols) */}
+          <div className="lg:col-span-2">
+            <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-foreground">
+              ECOSYSTEM
             </h4>
-            <ul className="mt-5 space-y-4">
+            <ul className="mt-4 space-y-3">
               <li>
                 <a
                   href={brand.academy.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex flex-col text-xs transition-colors hover:text-emerald-400"
+                  className="group flex flex-col text-xs transition-colors hover:text-foreground"
                 >
-                  <span className="inline-flex items-center gap-1.5 font-semibold text-foreground group-hover:text-emerald-400">
+                  <span className="inline-flex items-center gap-1 font-semibold text-foreground">
                     <span>{brand.academy.name}</span>
-                    <ArrowUpRight className="h-3.5 w-3.5 text-emerald-400 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    <ArrowUpRight className="h-3 w-3 text-zinc-400" />
                   </span>
-                  <span className="text-[11px] text-muted-foreground mt-0.5 font-mono">
+                  <span className="text-[10px] text-zinc-500 mt-0.5 font-mono">
                     {brand.academy.division}
                   </span>
                 </a>
@@ -130,43 +129,33 @@ export function Footer() {
                   href={brand.gambit.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex flex-col text-xs transition-colors hover:text-emerald-400"
+                  className="group flex flex-col text-xs transition-colors hover:text-foreground"
                 >
-                  <span className="inline-flex items-center gap-1.5 font-semibold text-foreground group-hover:text-emerald-400">
+                  <span className="inline-flex items-center gap-1 font-semibold text-foreground">
                     <span>{brand.gambit.name}</span>
-                    <ArrowUpRight className="h-3.5 w-3.5 text-emerald-400 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    <ArrowUpRight className="h-3 w-3 text-zinc-400" />
                   </span>
-                  <span className="text-[11px] text-muted-foreground mt-0.5 font-mono">
+                  <span className="text-[10px] text-zinc-500 mt-0.5 font-mono">
                     {brand.gambit.division}
                   </span>
                 </a>
-              </li>
-              <li className="pt-3 border-t border-white/5">
-                <span className="text-[10px] uppercase tracking-wider text-muted-foreground/80 block mb-1 font-mono">
-                  Legal
-                </span>
-                <div className="flex gap-3 text-xs text-muted-foreground">
-                  <a href="#about" className="hover:text-emerald-400 transition-colors">Privacy</a>
-                  <span>·</span>
-                  <a href="#about" className="hover:text-emerald-400 transition-colors">Terms</a>
-                </div>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom row */}
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 md:flex-row">
-          <p className="text-xs text-muted-foreground">
-            © {year} {brand.name}. All rights reserved.
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
+          <p className="text-xs font-mono text-zinc-500">
+            © {year} {brand.name}. ALL RIGHTS RESERVED.
           </p>
 
           <a
             href="#top"
-            className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.02] px-3.5 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-emerald-500/40 hover:text-emerald-400"
+            className="flex items-center gap-1.5 border border-border px-3 py-1 text-xs font-mono text-zinc-400 transition-colors hover:border-zinc-400 hover:text-white"
           >
-            <span>Back to top</span>
-            <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <span>BACK_TO_TOP</span>
+            <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
             </svg>
           </a>

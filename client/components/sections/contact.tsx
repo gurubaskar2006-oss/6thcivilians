@@ -1,21 +1,16 @@
 'use client'
 
 import { useState } from 'react'
-import { Mail, Check, Sparkles } from 'lucide-react'
+import { Mail, Check } from 'lucide-react'
 import { brand, projectTypes, engagementModels } from '@/data/content'
-import { Reveal, useIsReducedMotion } from '@/components/motion'
-import { SectionLabel } from '@/components/section-label'
-import { MagneticButton } from '@/components/magnetic-button'
-import { cn } from '@/lib/utils'
-import { motion } from 'framer-motion'
+import { Reveal } from '@/components/motion'
 
 const fieldClass =
-  'w-full rounded-xl border border-border bg-secondary/35 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground outline-none transition-all duration-300 focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400/50 focus:shadow-[0_0_10px_-3px_rgba(16,185,129,0.2)]'
+  'w-full border border-border bg-card/60 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground outline-none transition-colors duration-200 focus:border-zinc-400 focus:bg-card'
 
 export function Contact() {
   const [sent, setSent] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const reduced = useIsReducedMotion()
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -50,83 +45,40 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="relative overflow-hidden w-full py-28 border-t border-border/40">
-      {/* Subtle animated background geometry */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center overflow-hidden"
-      >
-        {/* Subtle grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#10b98108_1px,transparent_1px),linear-gradient(to_bottom,#10b98108_1px,transparent_1px)] bg-[size:32px_32px]" />
+    <section id="contact" className="relative w-full py-24 border-b border-border bg-background">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid items-start gap-12 lg:grid-cols-12">
+          {/* Left Column: Heading, Models, and Direct Email (5 cols) */}
+          <div className="lg:col-span-5 flex flex-col">
+            <span className="font-mono text-xs uppercase tracking-widest text-emerald-500 font-bold block mb-4">
+              07 // INITIATE CORPORATE ENGAGEMENT
+            </span>
 
-        {/* Ambient radial glow */}
-        <div className="h-[500px] w-[800px] rounded-full bg-gradient-to-tr from-emerald-500/10 via-cyan-500/5 to-transparent blur-[140px] opacity-60" />
-
-        {/* Rotating technical orbital ring */}
-        {!reduced && (
-          <motion.svg
-            className="absolute h-[650px] w-[650px] opacity-20"
-            viewBox="0 0 400 400"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
-          >
-            <circle
-              cx="200"
-              cy="200"
-              r="180"
-              fill="none"
-              stroke="#10b981"
-              strokeWidth="0.75"
-              strokeDasharray="6 12"
-            />
-            <circle
-              cx="200"
-              cy="200"
-              r="130"
-              fill="none"
-              stroke="#06b6d4"
-              strokeWidth="0.5"
-              strokeDasharray="4 8"
-            />
-          </motion.svg>
-        )}
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
-        <div className="grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          {/* Left Column: Heading & Details */}
-          <div>
-            <SectionLabel index="07" label="Engagement" />
             <Reveal>
-              <h2 className="mt-5 font-display text-3xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-4xl md:text-5xl">
-                Have a technology challenge?{' '}
-                <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
-                  Let&apos;s build what&apos;s next.
-                </span>
+              <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-foreground leading-[1.1]">
+                Have a technology challenge? Let&apos;s build what&apos;s next.
               </h2>
             </Reveal>
 
             <Reveal delay={0.1}>
-              <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                Tell us what you&apos;re building. Let&apos;s explore how disciplined software engineering, intelligent systems, and scalable architecture can move your objectives forward.
+              <p className="mt-5 text-sm sm:text-base leading-relaxed text-muted-foreground">
+                Tell us what you&apos;re building. Let&apos;s explore how disciplined software engineering, applied machine intelligence, and scalable cloud architecture can accelerate your business objectives.
               </p>
             </Reveal>
 
+            {/* Engagement Models (Tabular vertical list) */}
             <Reveal delay={0.2}>
               <div className="mt-8 space-y-3">
-                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/80 block font-mono">
-                  Engagement Models
+                <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 block mb-2">
+                  ENGAGEMENT FRAMEWORKS
                 </span>
-                <div className="grid gap-3 sm:grid-cols-3">
+                <div className="border border-border divide-y divide-border bg-card/30">
                   {engagementModels.map((model) => (
-                    <div
-                      key={model.title}
-                      className="rounded-xl border border-white/5 bg-white/[0.02] p-4 transition-all hover:border-emerald-500/30 hover:bg-white/[0.04]"
-                    >
+                    <div key={model.title} className="p-3.5">
                       <h3 className="font-display text-xs font-bold text-foreground">
                         {model.title}
                       </h3>
-                      <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground">
+                      <p className="mt-0.5 text-[11px] text-muted-foreground">
                         {model.description}
                       </p>
                     </div>
@@ -135,131 +87,143 @@ export function Contact() {
               </div>
             </Reveal>
 
+            {/* Direct Inquiries */}
             <Reveal delay={0.3}>
-              <div className="mt-8 flex flex-col gap-3">
-                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/80 font-mono">
-                  Direct Inquiries
+              <div className="mt-8 pt-6 border-t border-border flex flex-col gap-2">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400">
+                  DIRECT CORPORATE DISPATCH
                 </span>
                 <a
                   href={`mailto:${brand.email}`}
-                  className="group inline-flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  className="group inline-flex items-center gap-2.5 text-sm text-zinc-300 transition-colors hover:text-white"
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-secondary text-emerald-400 transition-colors group-hover:border-emerald-400/50">
-                    <Mail className="h-4 w-4" />
-                  </span>
+                  <Mail className="h-4 w-4 text-emerald-400" />
                   <span className="font-mono text-xs sm:text-sm">{brand.email}</span>
                 </a>
               </div>
             </Reveal>
           </div>
 
-          {/* Right Column: Interactive Form */}
-          <Reveal delay={0.15}>
-            <div className="rounded-3xl border border-white/10 bg-zinc-950/70 p-6 sm:p-8 backdrop-blur-md shadow-2xl">
-              {sent ? (
-                <div className="flex min-h-80 flex-col items-center justify-center text-center">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-zinc-950 shadow-lg shadow-emerald-500/30">
-                    <Check className="h-6 w-6 stroke-[3]" />
+          {/* Right Column: Intake Dispatch Console (7 cols) */}
+          <div className="lg:col-span-7">
+            <Reveal delay={0.15}>
+              <div className="border border-border bg-card p-6 sm:p-8">
+                <div className="flex items-center justify-between border-b border-border pb-4 mb-6">
+                  <span className="font-mono text-xs font-bold text-zinc-300">
+                    INTAKE_DISPATCH // INQUIRY_PORTAL
                   </span>
-                  <h3 className="mt-5 font-display text-xl font-bold text-foreground">
-                    Message received.
-                  </h3>
-                  <p className="mt-2 max-w-xs text-xs leading-relaxed text-muted-foreground">
-                    Thank you for reaching out to 6th Civilians Corporation. Our technical team will review your inquiry and respond shortly.
-                  </p>
+                  <span className="font-mono text-[10px] text-emerald-500">ENCRYPTED_TLS</span>
                 </div>
-              ) : (
-                <form onSubmit={onSubmit} className="space-y-4">
-                  <div className="grid gap-4 sm:grid-cols-2">
+
+                {sent ? (
+                  <div className="flex min-h-72 flex-col items-center justify-center text-center p-6">
+                    <span className="flex h-12 w-12 items-center justify-center border border-emerald-500 text-emerald-400">
+                      <Check className="h-6 w-6 stroke-[2.5]" />
+                    </span>
+                    <h3 className="mt-4 font-display text-xl font-bold text-foreground">
+                      Inquiry received.
+                    </h3>
+                    <p className="mt-2 max-w-sm text-xs leading-relaxed text-muted-foreground font-sans">
+                      Thank you for contacting 6th Civilians Corporation. Our technical leadership will review your inquiry and schedule an introductory architecture session.
+                    </p>
+                  </div>
+                ) : (
+                  <form onSubmit={onSubmit} className="space-y-4 font-sans">
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div>
+                        <label htmlFor="name" className="mb-1 block text-xs font-mono text-zinc-400">
+                          NAME *
+                        </label>
+                        <input
+                          id="name"
+                          name="name"
+                          required
+                          placeholder="Your full name"
+                          className={fieldClass}
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="email" className="mb-1 block text-xs font-mono text-zinc-400">
+                          CORPORATE EMAIL *
+                        </label>
+                        <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          required
+                          placeholder="name@organization.com"
+                          className={fieldClass}
+                        />
+                      </div>
+                    </div>
+
                     <div>
-                      <label htmlFor="name" className="mb-1.5 block text-xs font-medium text-muted-foreground">
-                        Name
+                      <label htmlFor="company" className="mb-1 block text-xs font-mono text-zinc-400">
+                        ORGANIZATION / ENTERPRISE
                       </label>
                       <input
-                        id="name"
-                        name="name"
-                        required
-                        placeholder="Your full name"
+                        id="company"
+                        name="company"
+                        placeholder="Company or project name"
                         className={fieldClass}
                       />
                     </div>
+
                     <div>
-                      <label htmlFor="email" className="mb-1.5 block text-xs font-medium text-muted-foreground">
-                        Corporate Email
+                      <label htmlFor="projectType" className="mb-1 block text-xs font-mono text-zinc-400">
+                        CAPABILITY REQUIREMENT
                       </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        required
-                        placeholder="name@company.com"
-                        className={fieldClass}
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="company" className="mb-1.5 block text-xs font-medium text-muted-foreground">
-                      Company / Organization
-                    </label>
-                    <input
-                      id="company"
-                      name="company"
-                      placeholder="Organization or project name"
-                      className={fieldClass}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="projectType" className="mb-1.5 block text-xs font-medium text-muted-foreground">
-                      Focus Area / Service Required
-                    </label>
-                    <select
-                      id="projectType"
-                      name="projectType"
-                      defaultValue=""
-                      className={cn(fieldClass, 'appearance-none')}
-                    >
-                      <option value="" disabled className="bg-zinc-950 text-white">
-                        Select a capability area…
-                      </option>
-                      {projectTypes.map((p) => (
-                        <option key={p} value={p} className="bg-zinc-950 text-white">
-                          {p}
+                      <select
+                        id="projectType"
+                        name="projectType"
+                        defaultValue=""
+                        className={`${fieldClass} appearance-none cursor-pointer`}
+                      >
+                        <option value="" disabled className="bg-zinc-950 text-white">
+                          Select capability area…
                         </option>
-                      ))}
-                    </select>
-                  </div>
+                        {projectTypes.map((p) => (
+                          <option key={p} value={p} className="bg-zinc-950 text-white">
+                            {p}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
 
-                  <div>
-                    <label htmlFor="message" className="mb-1.5 block text-xs font-medium text-muted-foreground">
-                      Project Description
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={4}
-                      placeholder="Tell us about the problem space, requirements, and desired timeline…"
-                      className={cn(fieldClass, 'resize-none')}
-                    />
-                  </div>
+                    <div>
+                      <label htmlFor="message" className="mb-1 block text-xs font-mono text-zinc-400">
+                        PROJECT SCOPE & OBJECTIVES *
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        required
+                        rows={4}
+                        placeholder="Describe the operational problem, scale requirements, and expected timeline…"
+                        className={`${fieldClass} resize-none`}
+                      />
+                    </div>
 
-                  <div className="pt-2 flex flex-col sm:flex-row gap-3">
-                    <MagneticButton type="submit" className="flex-1" disabled={isSubmitting}>
-                      {isSubmitting ? 'Submitting Inquiry...' : 'Start a Conversation'}
-                    </MagneticButton>
-                    <a
-                      href={`mailto:${brand.email}`}
-                      className="inline-flex items-center justify-center rounded-xl border border-white/10 px-5 py-3 text-xs font-semibold text-zinc-300 transition-colors hover:border-emerald-500/40 hover:text-white"
-                    >
-                      Contact Us Directly
-                    </a>
-                  </div>
-                </form>
-              )}
-            </div>
-          </Reveal>
+                    <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="flex-1 bg-foreground text-background py-3.5 text-xs font-bold uppercase tracking-wider transition-colors hover:bg-zinc-200 active:scale-[0.99] disabled:opacity-50"
+                      >
+                        {isSubmitting ? 'Transmitting...' : 'Start a Conversation'}
+                      </button>
+                      <a
+                        href={`mailto:${brand.email}`}
+                        className="inline-flex items-center justify-center border border-border px-5 py-3.5 text-xs font-semibold text-zinc-300 transition-colors hover:border-zinc-400 hover:text-white"
+                      >
+                        Contact Us Directly
+                      </a>
+                    </div>
+                  </form>
+                )}
+              </div>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>

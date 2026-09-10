@@ -1,137 +1,156 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, ChevronDown, Code2, Cpu, Cloud, ShieldCheck } from 'lucide-react'
+import { ArrowRight, ChevronDown, Terminal, CheckCircle2 } from 'lucide-react'
 import { brand } from '@/data/content'
 import { EASE, useIsReducedMotion } from '@/components/motion'
-import { MagneticButton } from '@/components/magnetic-button'
 import { HeroInteractiveArchitecture } from '@/components/hero-interactive-architecture'
 
 export function Hero() {
   const reduced = useIsReducedMotion()
 
-  const techHighlights = [
-    { icon: Code2, label: 'Enterprise Software' },
-    { icon: Cpu, label: 'Applied AI & ML' },
-    { icon: Cloud, label: 'Cloud Architecture' },
-    { icon: ShieldCheck, label: 'Mission-Critical Reliability' },
+  const capabilities = [
+    { code: '01', label: 'Software Engineering', spec: 'Distributed Systems & Web Core' },
+    { code: '02', label: 'Applied Intelligence', spec: 'Production ML & LLM Workflows' },
+    { code: '03', label: 'Cloud Architecture', spec: 'Multi-Cloud & Zero-Downtime' },
+    { code: '04', label: 'Technology Advisory', spec: 'Enterprise Modernization' },
   ]
-
-  const line1 = 'Engineering technology'
-  const line2 = 'for what comes next.'
 
   return (
     <section
       id="hero-panel"
-      className="relative flex min-h-[92vh] flex-col items-center justify-center overflow-hidden pt-32 pb-20 tech-grid"
+      className="relative min-h-[92vh] flex flex-col justify-between pt-32 pb-12 arch-grid border-b border-border"
     >
-      {/* Proprietary Interactive Technical Architecture Background */}
-      <HeroInteractiveArchitecture />
-
-      {/* Hero content container */}
-      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center flex flex-col items-center">
-        {/* Corporate division pill with micro-radar dot */}
-        <motion.div
-          initial={reduced ? false : { opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: EASE }}
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-400 backdrop-blur-md shadow-[0_0_20px_-5px_rgba(16,185,129,0.3)]"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-          </span>
-          <span>6th Civilians Corporation</span>
-        </motion.div>
-
-        {/* Primary headline with engineered line-by-line reveal */}
-        <div className="overflow-hidden">
-          <motion.h1 className="font-display text-4xl font-extrabold tracking-tight text-foreground sm:text-6xl md:text-7xl max-w-4xl leading-[1.08]">
-            <motion.span
-              initial={reduced ? false : { y: '100%', opacity: 0 }}
-              animate={{ y: '0%', opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
-              className="block"
+      <div className="mx-auto max-w-7xl px-6 w-full my-auto">
+        {/* Asymmetric Split Layout: Left Content, Right Architectural Topology */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Left Column: Authoritative Editorial Statement (7 cols) */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left">
+            {/* Architectural Registration Bar */}
+            <motion.div
+              initial={reduced ? false : { opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: EASE }}
+              className="inline-flex items-center gap-3 border border-border bg-secondary/50 px-3.5 py-1.5 text-xs font-mono tracking-wider text-zinc-300 mb-8"
             >
-              {line1}
-            </motion.span>
-            <motion.span
-              initial={reduced ? false : { y: '100%', opacity: 0 }}
-              animate={{ y: '0%', opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.25, ease: EASE }}
-              className="block mt-1 bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent"
-            >
-              {line2}
-            </motion.span>
-          </motion.h1>
-        </div>
+              <span className="flex h-2 w-2 relative">
+                <span className="h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              <span>6TH CIVILIANS CORPORATION // ARCHITECTURE & SYSTEMS</span>
+            </motion.div>
 
-        {/* Supporting corporate copy */}
-        <motion.p
-          initial={reduced ? false : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.45, duration: 0.8, ease: EASE }}
-          className="mx-auto mt-7 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
-        >
-          {brand.subheadline}
-        </motion.p>
-
-        {/* Action buttons with micro-interaction hover */}
-        <motion.div
-          initial={reduced ? false : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8, ease: EASE }}
-          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row w-full sm:w-auto"
-        >
-          <MagneticButton href="#services">
-            <span className="flex items-center gap-2">
-              Explore Our Services
-              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </span>
-          </MagneticButton>
-          <MagneticButton href="#contact" variant="ghost">
-            Work With Us
-          </MagneticButton>
-        </motion.div>
-
-        {/* Technology Highlights Row */}
-        <motion.div
-          initial={reduced ? false : { opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.75, duration: 0.8, ease: EASE }}
-          className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-4 w-full max-w-3xl"
-        >
-          {techHighlights.map((item) => {
-            const Icon = item.icon
-            return (
-              <div
-                key={item.label}
-                className="group flex items-center gap-2.5 rounded-xl border border-white/5 bg-white/[0.02] p-3 text-left backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/40 hover:bg-white/[0.04]"
+            {/* Solid, Commanding Typographic Headline in Syne */}
+            <div className="overflow-hidden">
+              <motion.h1
+                initial={reduced ? false : { y: '100%' }}
+                animate={{ y: '0%' }}
+                transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
+                className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.04]"
               >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-border/60 bg-secondary/40 text-emerald-400 transition-transform duration-300 group-hover:scale-105">
-                  <Icon className="h-4 w-4" />
-                </div>
-                <span className="text-xs font-medium text-muted-foreground transition-colors group-hover:text-foreground">
-                  {item.label}
+                Engineering technology for what comes next.
+              </motion.h1>
+            </div>
+
+            {/* Editorial Positioning Statement */}
+            <motion.p
+              initial={reduced ? false : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35, duration: 0.7, ease: EASE }}
+              className="mt-7 max-w-xl text-base sm:text-lg leading-relaxed text-muted-foreground font-sans text-pretty"
+            >
+              We design, engineer, and deploy mission-critical software systems, applied machine learning architectures, and scalable cloud topologies for forward-thinking enterprises.
+            </motion.p>
+
+            {/* High-Contrast Action Cluster */}
+            <motion.div
+              initial={reduced ? false : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.7, ease: EASE }}
+              className="mt-10 flex flex-wrap items-center gap-4 w-full sm:w-auto"
+            >
+              <a
+                href="#services"
+                className="inline-flex items-center justify-center gap-3 bg-foreground text-background px-6 py-3.5 text-sm font-semibold tracking-wide transition-all duration-200 hover:bg-zinc-200 active:scale-[0.98]"
+              >
+                <span>Explore Capabilities</span>
+                <ArrowRight className="h-4 w-4" />
+              </a>
+
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 border border-border bg-transparent px-6 py-3.5 text-sm font-semibold text-foreground transition-all duration-200 hover:border-zinc-500 hover:bg-white/[0.03]"
+              >
+                Initiate Engagement
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Right Column: Architectural Schematic Console (5 cols) */}
+          <motion.div
+            initial={reduced ? false : { opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 0.8, ease: EASE }}
+            className="lg:col-span-5 relative"
+          >
+            <div className="relative border border-border bg-card p-5 font-mono">
+              {/* Corner marks */}
+              <div className="absolute -top-1.5 -left-1.5 text-xs text-zinc-500">+</div>
+              <div className="absolute -top-1.5 -right-1.5 text-xs text-zinc-500">+</div>
+              <div className="absolute -bottom-1.5 -left-1.5 text-xs text-zinc-500">+</div>
+              <div className="absolute -bottom-1.5 -right-1.5 text-xs text-zinc-500">+</div>
+
+              {/* Console Header Bar */}
+              <div className="flex items-center justify-between border-b border-border pb-3 text-[11px] text-zinc-400">
+                <span className="flex items-center gap-2 text-zinc-200">
+                  <Terminal className="h-3.5 w-3.5 text-emerald-400" />
+                  SYSTEM_CORE_TOPOLOGY
                 </span>
+                <span className="text-emerald-400">STATUS: NOMINAL</span>
               </div>
-            )
-          })}
-        </motion.div>
+
+              {/* Interactive Vector Node Viewport */}
+              <div className="relative h-64 sm:h-72 w-full my-3 overflow-hidden border border-border/50 bg-black/40">
+                <HeroInteractiveArchitecture />
+              </div>
+
+              {/* Console Telemetry Row */}
+              <div className="grid grid-cols-3 gap-2 pt-3 border-t border-border text-[10px] text-zinc-400">
+                <div>
+                  <span className="text-zinc-500 block">THROUGHPUT</span>
+                  <span className="text-zinc-200 font-semibold">120K REQ/SEC</span>
+                </div>
+                <div>
+                  <span className="text-zinc-500 block">UPTIME SLA</span>
+                  <span className="text-zinc-200 font-semibold">99.99% VERIFIED</span>
+                </div>
+                <div>
+                  <span className="text-zinc-500 block">SECURITY</span>
+                  <span className="text-emerald-400 font-semibold">ZERO-TRUST</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
 
-      {/* Minimal scroll indicator */}
-      <motion.a
-        href="#about"
-        aria-label="Scroll to corporate introduction"
-        initial={reduced ? false : { opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.95, duration: 0.6 }}
-        className="mt-14 flex flex-col items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
-      >
-        <span className="uppercase tracking-widest text-[10px] font-medium text-emerald-400/90">Explore</span>
-        <ChevronDown className="h-4 w-4 animate-bounce text-emerald-400" />
-      </motion.a>
+      {/* Full-Width Architectural Capability Index Bar */}
+      <div className="mt-12 w-full border-t border-border bg-zinc-950/60">
+        <div className="mx-auto max-w-7xl px-6 py-4 grid grid-cols-2 md:grid-cols-4 gap-6 divide-y md:divide-y-0 md:divide-x divide-border/60">
+          {capabilities.map((item) => (
+            <div key={item.code} className="flex flex-col pt-3 md:pt-0 md:px-4 first:pl-0">
+              <span className="font-mono text-xs text-emerald-500 font-bold mb-1">
+                [{item.code}]
+              </span>
+              <span className="text-xs font-semibold text-foreground">
+                {item.label}
+              </span>
+              <span className="text-[11px] text-muted-foreground mt-0.5">
+                {item.spec}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   )
 }

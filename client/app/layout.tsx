@@ -1,26 +1,30 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Inter, Space_Grotesk } from 'next/font/google'
-import { CursorGlow } from '@/components/cursor-glow'
+import { Plus_Jakarta_Sans, Syne, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
-// NOTE: next/font/google fetches font files from fonts.googleapis.com at build time.
-// This is optimal for performance (self-hosting behavior on Vercel), but it will
-// fail builds in network-restricted environments (e.g. offline CI runners, sandboxed builds).
-// If your build fails here without network access, you should switch to locally hosted
-// font files (@font-face in globals.css) as an alternative.
-const inter = Inter({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-sans',
   display: 'swap',
+  weight: ['400', '500', '600', '700'],
   fallback: ['-apple-system', 'Segoe UI', 'sans-serif'],
 })
 
-const spaceGrotesk = Space_Grotesk({
+const syne = Syne({
   subsets: ['latin'],
-  variable: '--font-space-grotesk',
+  variable: '--font-display',
   display: 'swap',
-  fallback: ['-apple-system', 'Segoe UI', 'sans-serif'],
+  weight: ['600', '700', '800'],
+  fallback: ['Georgia', 'sans-serif'],
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  display: 'swap',
+  weight: ['400', '500'],
+  fallback: ['Consolas', 'monospace'],
 })
 
 export const metadata: Metadata = {
@@ -29,56 +33,20 @@ export const metadata: Metadata = {
     '6th Civilians Corporation is a premier technology corporation engineering custom enterprise software, artificial intelligence systems, cloud architectures, and digital products.',
   generator: 'Next.js',
   keywords: [
-    // Brand
     '6th Civilians Corporation',
     '6th Civilians Corp',
     '6th Civilians',
     '6thcivilians',
-    '6th Civilians Corporation technology',
-    '6th Civilians Corporation software',
-    '6th Civilians Corporation enterprise systems',
-
-    // Software engineering
     'software engineering corporation',
     'enterprise software development',
     'custom software engineering',
-    'software product development',
-    'web application development',
-    'backend systems engineering',
-    'API development and integration',
-    'cloud-native software architecture',
-
-    // Artificial intelligence
-    'artificial intelligence solutions',
-    'applied machine learning',
-    'generative AI systems',
-    'intelligent automation software',
-    'enterprise AI engineering',
-    'autonomous agent workflows',
-
-    // Cloud & infrastructure
-    'cloud solutions',
+    'applied artificial intelligence',
     'cloud infrastructure architecture',
-    'DevOps engineering',
-    'CI/CD automation',
-    'system architecture consulting',
-    'distributed systems',
-
-    // Digital products & consulting
-    'digital product development',
-    'SaaS platform engineering',
-    'UI/UX engineering',
     'technology consulting',
-    'digital transformation advisory',
   ],
   authors: [{ name: '6th Civilians Corporation' }],
   creator: '6th Civilians Corporation',
   publisher: '6th Civilians Corporation',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
   metadataBase: new URL('https://6thcivilians.com'),
   alternates: {
     canonical: '/',
@@ -114,19 +82,12 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
   },
 }
 
 export const viewport: Viewport = {
   colorScheme: 'dark',
-  themeColor: '#0A0C10',
+  themeColor: '#090A0D',
 }
 
 export default function RootLayout({
@@ -148,7 +109,8 @@ export default function RootLayout({
         '@type': 'EducationalOrganization',
         name: 'Ewdth Academy',
         url: 'https://academy.6thcivilians.com',
-        description: 'Ewdth Academy — Education Division of 6th Civilians Corporation, delivering technical training and talent development.',
+        description:
+          'Ewdth Academy — Education Division of 6th Civilians Corporation, delivering technical training and talent development.',
       },
     ],
   }
@@ -158,12 +120,7 @@ export default function RootLayout({
     '@type': 'WebSite',
     '@id': 'https://6thcivilians.com/#website',
     name: '6th Civilians Corporation',
-    alternateName: [
-      '6th Civilians Corp',
-      '6th Civilians',
-      '6C',
-      '6thcivilians',
-    ],
+    alternateName: ['6th Civilians Corp', '6th Civilians', '6C', '6thcivilians'],
     url: 'https://6thcivilians.com',
     publisher: {
       '@id': 'https://6thcivilians.com/#organization',
@@ -171,7 +128,10 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html
+      lang="en"
+      className={`${plusJakarta.variable} ${syne.variable} ${jetbrainsMono.variable}`}
+    >
       <head>
         <script
           type="application/ld+json"
@@ -182,8 +142,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className="bg-background text-foreground antialiased">
-        <CursorGlow />
+      <body className="bg-background text-foreground antialiased font-sans selection:bg-zinc-800 selection:text-white">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
