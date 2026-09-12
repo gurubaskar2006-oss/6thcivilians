@@ -50,7 +50,7 @@ function LeaderCard({ f, index }: { f: Founder; index: number }) {
             aria-label={`${f.name} LinkedIn Profile`}
           >
             <LinkedInIcon className="h-3.5 w-3.5 text-zinc-400" />
-            <span className="font-mono text-[11px]">VERIFIED_PROFILE</span>
+            <span className="font-mono text-[11px] text-zinc-400 hover:text-emerald-400 transition-colors">LinkedIn Profile</span>
           </a>
         </div>
       )}
@@ -88,7 +88,7 @@ export function About() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-16 border-b border-border">
         <div className="lg:col-span-8">
           <span className="font-mono text-xs uppercase tracking-widest text-emerald-500 font-bold block mb-4">
-            06 // CORPORATE GOVERNANCE & LEADERSHIP
+            07 // CORPORATE GOVERNANCE & LEADERSHIP
           </span>
           <Reveal>
             <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-foreground leading-[1.1]">

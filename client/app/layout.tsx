@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Plus_Jakarta_Sans, Syne, JetBrains_Mono } from 'next/font/google'
+import { Plus_Jakarta_Sans, Syne, Space_Grotesk, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -11,9 +11,17 @@ const plusJakarta = Plus_Jakarta_Sans({
   fallback: ['-apple-system', 'Segoe UI', 'sans-serif'],
 })
 
-const syne = Syne({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-display',
+  display: 'swap',
+  weight: ['500', '600', '700'],
+  fallback: ['Plus Jakarta Sans', 'sans-serif'],
+})
+
+const syne = Syne({
+  subsets: ['latin'],
+  variable: '--font-syne',
   display: 'swap',
   weight: ['600', '700', '800'],
   fallback: ['Georgia', 'sans-serif'],
@@ -86,8 +94,8 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'dark',
-  themeColor: '#090A0D',
+  colorScheme: 'light dark',
+  themeColor: '#073B32',
 }
 
 export default function RootLayout({
@@ -107,10 +115,10 @@ export default function RootLayout({
     department: [
       {
         '@type': 'EducationalOrganization',
-        name: 'Ewdth Academy',
+        name: 'EDWTH Academy',
         url: 'https://academy.6thcivilians.com',
         description:
-          'Ewdth Academy — Education Division of 6th Civilians Corporation, delivering technical training and talent development.',
+          'EDWTH Academy — Education Division of 6th Civilians Corporation, delivering technical training and talent development.',
       },
     ],
   }
@@ -130,7 +138,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakarta.variable} ${syne.variable} ${jetbrainsMono.variable}`}
+      className={`${plusJakarta.variable} ${spaceGrotesk.variable} ${syne.variable} ${jetbrainsMono.variable}`}
     >
       <head>
         <script
@@ -142,7 +150,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className="bg-background text-foreground antialiased font-sans selection:bg-zinc-800 selection:text-white">
+      <body className="bg-background text-foreground antialiased font-sans selection:bg-[#073B32] selection:text-[#F7F7F2]">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

@@ -43,7 +43,7 @@ export const members: Member[] = [
   },
   {
     name: "Hemanth Sachin",
-    title: "Communications & Engagement",
+    title: "Team Gambit Lead",
     focus:
       "Crafts the voice that connects our story to every audience.",
     initials: "HS",
@@ -51,7 +51,7 @@ export const members: Member[] = [
   },
   {
     name: "Santhosh",
-    title: "Institution Relations",
+    title: "Team Gambit Lead",
     focus:
       "Bridges trust between institutions and the people they serve.",
     initials: "SA",
@@ -159,5 +159,6 @@ export const values: Value[] = [
 ];
 
 export const socialLinks = [
-  { label: "LinkedIn", href: "#" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/sixth-civilians-3a2768432/" },
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61591930262686&sfnsn=wiwspwa&mibextid=RUbZ1f" },
 ];

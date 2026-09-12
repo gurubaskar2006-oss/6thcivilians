@@ -37,7 +37,7 @@ export function AcademySection() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-border bg-secondary/80 px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-foreground transition-all hover:border-zinc-400 hover:bg-secondary"
             >
-              <span>Visit EWDTH Academy</span>
+              <span>Visit EDWTH Academy</span>
               <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>

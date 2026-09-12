@@ -1,88 +1,107 @@
 'use client'
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useRef, useEffect } from 'react'
+import { motion, AnimatePresence, useScroll } from 'framer-motion'
 import { processSteps } from '@/data/content'
-import { EASE, Reveal, useIsReducedMotion } from '@/components/motion'
-import { CheckCircle2, FileCode, Layers, Shield, Server, RefreshCw } from 'lucide-react'
+import { EASE, useIsReducedMotion } from '@/components/motion'
+import { CheckCircle2, FileText, Layout, Code2, Rocket, RefreshCw } from 'lucide-react'
 
 const stageDeliverables: Record<string, { deliverables: string[]; criteria: string; icon: any }> = {
   '01': {
-    icon: FileCode,
+    icon: FileText,
     deliverables: [
-      'Comprehensive Technical Scope & System Boundaries',
-      'Architecture Blueprint & Data Schema Design',
-      'Security Risk Matrix & Compliance Checklist',
+      'Comprehensive Technical Scope & Boundary Definition',
+      'System Architecture Blueprint & Data Schema Design',
+      'Security & Integration Feasibility Assessment',
     ],
     criteria: 'Verified architectural consensus and formal technical specification signoff.',
   },
   '02': {
-    icon: Layers,
+    icon: Layout,
     deliverables: [
-      'Interface & Component Design Tokens (Figma/Code)',
-      'REST / GraphQL API Contracts & Entity-Relationship Schemas',
       'Interactive High-Fidelity Functional Prototypes',
+      'Design Token Specifications & Component Systems',
+      'REST & GraphQL API Contracts & Entity Schemas',
     ],
-    criteria: 'Usability validation and deterministic API contracts established.',
+    criteria: 'Deterministic API contracts and usability validation completed.',
   },
   '03': {
-    icon: Shield,
+    icon: Code2,
     deliverables: [
-      'Type-Safe, Modular Codebase (TypeScript, Next.js, Node/Python)',
-      'Automated Test Suites (Unit, Integration, and E2E Tests)',
-      'Peer Code Reviews & Static Security Vulnerability Auditing',
+      'Type-Safe Modular Codebase & Backend Architecture',
+      'Automated Test Suites (Unit & Integration Coverage)',
+      'Peer Review & Static Code Quality Auditing',
     ],
-    criteria: '100% CI pipeline passing with zero high-severity vulnerabilities.',
+    criteria: 'Automated CI verification passing with verified test coverage.',
   },
   '04': {
-    icon: Server,
+    icon: Rocket,
     deliverables: [
-      'Automated Multi-Stage CI/CD Deployment Workflows',
-      'Containerized Orchestration (Docker / Kubernetes) with Zero Downtime',
-      'Real-Time Observability (Logs, Distributed Tracing, Metrics)',
+      'Automated Multi-Stage Deployment Pipelines',
+      'Cloud Environment Configuration & Rollback Safeguards',
+      'System Health Instrumentation & Performance Checks',
     ],
-    criteria: 'Successful production release with automated health probes and rollback safety.',
+    criteria: 'Smooth production rollout with automated health probes.',
   },
   '05': {
     icon: RefreshCw,
     deliverables: [
-      'Performance Profiling & Bottleneck Optimization',
-      'Horizontal Scaling & Database Sharding / Cache Strategies',
-      'Continuous Feature Iteration & Enterprise SLA Governance',
+      'Continuous Performance Profiling & Optimization',
+      'Elastic Scaling & Database Indexing Strategies',
+      'Ongoing Architectural Advisory & Feature Expansion',
     ],
     criteria: 'Predictable uptime, low latency, and ongoing architectural evolution.',
   },
 }
 
 export function Process() {
+  const sectionRef = useRef<HTMLElement>(null)
   const [activeStepIndex, setActiveStepIndex] = useState(0)
   const reduced = useIsReducedMotion()
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start 70%', 'end 60%'],
+  })
+
+  // Synchronize scroll position with active step if user is scrolling through
+  useEffect(() => {
+    if (reduced) return
+    const unsubscribe = scrollYProgress.on('change', (v) => {
+      const stepIndex = Math.min(
+        processSteps.length - 1,
+        Math.max(0, Math.floor(v * processSteps.length))
+      )
+      setActiveStepIndex(stepIndex)
+    })
+    return () => unsubscribe()
+  }, [scrollYProgress, reduced])
 
   const currentStep = processSteps[activeStepIndex]
   const details = stageDeliverables[currentStep.step] || stageDeliverables['01']
   const StepIcon = details.icon
 
   return (
-    <section id="process" className="relative mx-auto max-w-7xl px-6 w-full py-24 border-b border-border">
-      {/* Asymmetric Section Header */}
+    <section
+      ref={sectionRef}
+      id="process"
+      className="relative mx-auto max-w-7xl px-6 w-full py-24 border-b border-border"
+    >
+      {/* Section Header */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-16 border-b border-border">
         <div className="lg:col-span-8">
           <span className="font-mono text-xs uppercase tracking-widest text-emerald-500 font-bold block mb-4">
-            05 // ENGINEERING LIFECYCLE & DELIVERY MODEL
+            06 // STRUCTURED DELIVERY LIFECYCLE
           </span>
-          <Reveal>
-            <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-foreground leading-[1.1]">
-              A structured lifecycle from discovery to continuous scale.
-            </h2>
-          </Reveal>
+          <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-foreground leading-[1.1]">
+            A structured lifecycle from discovery to continuous scale.
+          </h2>
         </div>
 
         <div className="lg:col-span-4">
-          <Reveal delay={0.1}>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              Our delivery model reduces uncertainty, enforces architecture discipline, and guarantees reproducible enterprise quality at every milestone.
-            </p>
-          </Reveal>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            Our delivery model reduces uncertainty, enforces architectural discipline, and guarantees reproducible quality across every milestone.
+          </p>
         </div>
       </div>
 
@@ -101,7 +120,7 @@ export function Process() {
           transition={{ duration: 0.35, ease: EASE }}
         />
 
-        {/* 5 Horizontal Step Buttons */}
+        {/* 5 Horizontal Step Nodes */}
         <div className="grid grid-cols-5 gap-4">
           {processSteps.map((step, idx) => {
             const isActive = idx === activeStepIndex
@@ -152,9 +171,9 @@ export function Process() {
           <AnimatePresence mode="wait">
             <motion.div
               key={currentStep.step}
-              initial={reduced ? false : { opacity: 0, y: 8 }}
+              initial={reduced ? false : { opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={reduced ? undefined : { opacity: 0, y: -8 }}
+              exit={reduced ? undefined : { opacity: 0, y: -10 }}
               transition={{ duration: 0.25, ease: EASE }}
               className="border border-border bg-card p-8"
             >
@@ -179,13 +198,13 @@ export function Process() {
                     {currentStep.tagline}
                   </p>
 
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground font-sans">
                     {currentStep.description}
                   </p>
 
                   <div className="mt-6 pt-4 border-t border-border/60">
                     <span className="text-[10px] font-mono text-zinc-500 uppercase block mb-1">
-                      GATE CRITERIA & VALIDATION
+                      MILESTONE GATE CRITERIA
                     </span>
                     <p className="text-xs text-zinc-300 font-mono">
                       {details.criteria}
@@ -196,7 +215,7 @@ export function Process() {
                 {/* Right Deliverables */}
                 <div className="md:col-span-7 flex flex-col justify-center">
                   <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 block mb-4">
-                    TECHNICAL ARTIFACTS & DELIVERABLES
+                    KEY MILESTONE DELIVERABLES
                   </span>
                   <div className="space-y-2.5">
                     {details.deliverables.map((item, i) => (
@@ -216,15 +235,12 @@ export function Process() {
         </div>
       </div>
 
-      {/* Mobile & Tablet Vertical Presentation */}
+      {/* Mobile Vertical Presentation */}
       <div className="mt-14 flex flex-col gap-5 lg:hidden">
         {processSteps.map((step) => {
           const info = stageDeliverables[step.step] || stageDeliverables['01']
           return (
-            <div
-              key={step.step}
-              className="border border-border bg-card p-6"
-            >
+            <div key={step.step} className="border border-border bg-card p-6">
               <div className="flex items-center gap-3">
                 <div className="flex h-9 w-9 items-center justify-center border border-border bg-secondary font-mono text-xs font-bold text-emerald-400">
                   {step.step}
@@ -239,7 +255,7 @@ export function Process() {
                 </div>
               </div>
 
-              <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+              <p className="mt-3 text-xs leading-relaxed text-muted-foreground font-sans">
                 {step.description}
               </p>
 

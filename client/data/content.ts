@@ -1,7 +1,7 @@
 /**
  * 6th Civilians Corporation — Single source of truth for corporate site data & copy.
  * Strictly focused on IT, Software, AI, Cloud, and Technology Engineering.
- * Educational programs are strictly isolated to Ewdth Academy.
+ * Educational programs are strictly isolated to EDWTH Academy.
  */
 
 import type { LucideIcon } from 'lucide-react'
@@ -39,31 +39,31 @@ import {
 export const brand = {
   name: '6th Civilians Corporation',
   shortName: '6th Civilians Corp',
-  tagline: 'Technology · Engineering · Innovation · Enterprise Solutions',
-  headline: 'Engineering technology for what comes next.',
+  tagline: 'Custom Software · Applied AI · Cloud Architecture · Engineering Talent',
+  headline: 'Building technology for what comes next.',
   subheadline:
-    '6th Civilians Corporation builds custom software, enterprise systems, AI-driven architectures, and scalable cloud solutions for organizations.',
+    '6th Civilians Corporation builds custom software, practical AI workflows, cloud infrastructure, and technical talent for modern businesses.',
   email: 'sixthciviliansoffical@gmail.com',
   academy: {
-    name: 'Ewdth Academy',
+    name: 'EDWTH Academy',
     division: 'Education Division',
     url: process.env.NEXT_PUBLIC_ACADEMY_URL || 'https://academy.6thcivilians.com/',
     tagline: 'Education, Training & Talent Development',
     description:
-      'Ewdth Academy operates as the dedicated education division, focused on developing technology skills, industrial immersion, and future-ready engineering talent.',
+      'EDWTH Academy is our dedicated education division, providing practical, project-based training to prepare developers for industry engineering.',
   },
   gambit: {
     name: 'Team Gambit',
-    division: 'PR & Communications Division',
-    url: 'https://pr.6thcivilians.com/',
-    tagline: 'Public Relations & Strategic Communications',
+    division: 'Strategic Outreach',
+    url: '/pr-team',
+    tagline: 'Strategic Communications & External Outreach',
     description:
-      'The public relations and strategic communications division managing institutional outreach and partnership development.',
+      'Team Gambit manages public relations, brand storytelling, and strategic partnerships across our ecosystem.',
   },
   social: {
-    linkedin: 'https://www.linkedin.com/company/6th-civilians/',
+    linkedin: 'https://www.linkedin.com/in/sixth-civilians-3a2768432/',
     instagram: 'https://www.instagram.com/_6th_civilians_?utm_source=qr&igsh=MWluMjhzMnA1MzN6cA=',
-    facebook: '#',
+    facebook: 'https://www.facebook.com/profile.php?id=61591930262686&sfnsn=wiwspwa&mibextid=RUbZ1f',
     youtube: '#',
     twitter: '#',
   },
@@ -357,21 +357,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: 'pr-gambit-platform',
-    title: 'Team Gambit PR & Communications Portal',
-    category: 'Digital Experience & Web Architecture',
-    clientOrDomain: 'Corporate PR Division',
-    description:
-      'A bespoke digital communication platform engineered for Team Gambit, featuring responsive visual architecture, structured brand storytelling, and high-performance asset delivery.',
-    highlights: [
-      'Sub-second page navigation with edge-rendered Next.js architecture',
-      'Fluid, accessible interaction design across all device viewports',
-      'Structured stakeholder communication and brand showcase workflows',
-    ],
-    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    url: 'https://pr.6thcivilians.com/',
-  },
-  {
     id: 'telemetry-dashboard',
     title: 'Industrial Fleet & Telemetry Platform',
     category: 'Cloud Architecture & IoT Systems',
@@ -509,6 +494,7 @@ export const founders: Founder[] = [
     title: 'QA Lead',
     role: 'Quality Assurance',
     bio: 'Maintains rigorous testing standards, automation pipelines, and delivery quality across all releases.',
+    photo: '/images/sarvesh.jpeg',
     linkedin: 'https://www.linkedin.com/in/sarveshwar-s-839895318?utm_source=share_via&utm_content=profile&utm_medium=member_ios',
   },
   {
@@ -518,6 +504,20 @@ export const founders: Founder[] = [
     bio: 'Steers long-term strategic initiatives, organizational governance, and enterprise development.',
     photo: '/images/magesh.jpeg',
     linkedin: 'https://www.linkedin.com/in/b-magesh-6515333b1/',
+  },
+  {
+    name: 'Hemanth Sachin',
+    title: 'Team Gambit Lead',
+    role: 'Public Relations',
+    bio: 'Crafts the voice and strategic communications that connect the corporate story to audiences and institutional partners.',
+    photo: '/images/sachin.jpeg',
+  },
+  {
+    name: 'Santhosh',
+    title: 'Team Gambit Lead',
+    role: 'Public Relations',
+    bio: 'Bridges trust between institutions and the ecosystem, establishing enduring strategic relationships.',
+    photo: '/images/santhosh.jpeg',
   },
 ]
 

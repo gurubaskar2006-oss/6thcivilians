@@ -51,7 +51,7 @@ export function Contact() {
           {/* Left Column: Heading, Models, and Direct Email (5 cols) */}
           <div className="lg:col-span-5 flex flex-col">
             <span className="font-mono text-xs uppercase tracking-widest text-emerald-500 font-bold block mb-4">
-              07 // INITIATE CORPORATE ENGAGEMENT
+              08 // INITIATE CORPORATE ENGAGEMENT
             </span>
 
             <Reveal>
@@ -78,7 +78,7 @@ export function Contact() {
                       <h3 className="font-display text-xs font-bold text-foreground">
                         {model.title}
                       </h3>
-                      <p className="mt-0.5 text-[11px] text-muted-foreground">
+                      <p className="mt-0.5 text-[11px] text-muted-foreground font-sans">
                         {model.description}
                       </p>
                     </div>
@@ -104,15 +104,15 @@ export function Contact() {
             </Reveal>
           </div>
 
-          {/* Right Column: Intake Dispatch Console (7 cols) */}
+          {/* Right Column: Intake Console (7 cols) */}
           <div className="lg:col-span-7">
             <Reveal delay={0.15}>
               <div className="border border-border bg-card p-6 sm:p-8">
                 <div className="flex items-center justify-between border-b border-border pb-4 mb-6">
                   <span className="font-mono text-xs font-bold text-zinc-300">
-                    INTAKE_DISPATCH // INQUIRY_PORTAL
+                    CORPORATE INQUIRY FORM
                   </span>
-                  <span className="font-mono text-[10px] text-emerald-500">ENCRYPTED_TLS</span>
+                  <span className="font-mono text-[10px] text-zinc-400">DIRECT LEADERSHIP ROUTING</span>
                 </div>
 
                 {sent ? (

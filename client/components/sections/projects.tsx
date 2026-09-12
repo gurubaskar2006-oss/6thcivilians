@@ -1,260 +1,314 @@
 'use client'
 
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { projects, type Project } from '@/data/content'
-import { Reveal, StaggerGroup } from '@/components/motion'
-import { ArrowUpRight, CheckCircle2, Terminal, Network, Sparkles, Layers, Shield } from 'lucide-react'
+import { ArrowUpRight, CheckCircle2, ChevronRight, ExternalLink } from 'lucide-react'
+import { useIsReducedMotion, EASE } from '@/components/motion'
+
+function ProjectVisualFrame({ project }: { project: Project }) {
+  const reduced = useIsReducedMotion()
+
+  return (
+    <div className="relative w-full aspect-[16/9] border border-border bg-zinc-950 overflow-hidden flex flex-col justify-between p-5">
+      {/* Background Architectural Grid */}
+      <div className="absolute inset-0 arch-grid opacity-20 pointer-events-none" />
+
+      {/* Top Meta Bar */}
+      <div className="relative z-10 flex items-center justify-between border-b border-border/80 pb-2 text-[10px] font-mono text-zinc-400">
+        <span className="flex items-center gap-1.5 text-zinc-200 uppercase">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+          CASE_STUDY // {project.id.toUpperCase()}
+        </span>
+        <span className="text-zinc-500 uppercase">{project.category}</span>
+      </div>
+
+      {/* Central Visual Presentation */}
+      <div className="relative my-auto flex items-center justify-center w-full h-full">
+        {project.id === 'pr-gambit-platform' && (
+          <motion.div
+            initial={reduced ? false : { clipPath: 'inset(0% 100% 0% 0%)', scale: 1.04 }}
+            animate={{ clipPath: 'inset(0% 0% 0% 0%)', scale: 1 }}
+            transition={{ duration: 0.45, ease: EASE }}
+            className="flex flex-col items-center text-center p-4"
+          >
+            <div className="h-12 w-12 rounded-full border border-emerald-500/60 bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-3 font-display font-bold text-lg">
+              TG
+            </div>
+            <span className="font-display text-lg font-bold text-foreground">
+              Team Gambit Communications
+            </span>
+            <span className="font-mono text-xs text-zinc-400 mt-1">
+              EDGE-RENDERED CORPORATE PORTAL
+            </span>
+          </motion.div>
+        )}
+
+        {project.id === 'telemetry-dashboard' && (
+          <motion.div
+            initial={reduced ? false : { clipPath: 'inset(0% 100% 0% 0%)', scale: 1.04 }}
+            animate={{ clipPath: 'inset(0% 0% 0% 0%)', scale: 1 }}
+            transition={{ duration: 0.45, ease: EASE }}
+            className="flex flex-col items-center text-center p-4"
+          >
+            <svg className="h-20 w-48 text-emerald-400" viewBox="0 0 200 80">
+              <path
+                d="M 10,40 Q 50,15 90,45 T 170,35"
+                fill="none"
+                stroke="#10B981"
+                strokeWidth="1.5"
+              />
+              <circle cx="10" cy="40" r="3" fill="#71717A" />
+              <circle cx="90" cy="45" r="4" fill="#10B981" />
+              <circle cx="170" cy="35" r="3" fill="#71717A" />
+            </svg>
+            <span className="font-display text-lg font-bold text-foreground mt-1">
+              Connected Device Fleet
+            </span>
+            <span className="font-mono text-xs text-zinc-400 mt-0.5">
+              STREAMING SENSOR INGEST & MONITORING
+            </span>
+          </motion.div>
+        )}
+
+        {project.id === 'conversational-automation' && (
+          <motion.div
+            initial={reduced ? false : { clipPath: 'inset(0% 100% 0% 0%)', scale: 1.04 }}
+            animate={{ clipPath: 'inset(0% 0% 0% 0%)', scale: 1 }}
+            transition={{ duration: 0.45, ease: EASE }}
+            className="flex flex-col items-center text-center p-4"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <div className="border border-border bg-secondary/60 px-3 py-1 text-xs font-mono text-zinc-300">
+                INQUIRY INGEST
+              </div>
+              <ChevronRight className="h-4 w-4 text-emerald-400" />
+              <div className="border border-emerald-500 bg-emerald-500/10 px-3 py-1 text-xs font-mono text-emerald-300 font-semibold">
+                NLP ROUTING
+              </div>
+            </div>
+            <span className="font-display text-lg font-bold text-foreground">
+              Intelligent Workflow Engine
+            </span>
+            <span className="font-mono text-xs text-zinc-400 mt-0.5">
+              CONTEXT-AWARE ENTERPRISE TRIAGE
+            </span>
+          </motion.div>
+        )}
+
+        {project.id === 'saas-core-platform' && (
+          <motion.div
+            initial={reduced ? false : { clipPath: 'inset(0% 100% 0% 0%)', scale: 1.04 }}
+            animate={{ clipPath: 'inset(0% 0% 0% 0%)', scale: 1 }}
+            transition={{ duration: 0.45, ease: EASE }}
+            className="flex flex-col items-center text-center p-4"
+          >
+            <div className="grid grid-cols-3 gap-2 mb-2">
+              <div className="border border-border bg-secondary/50 px-2.5 py-1 text-[10px] font-mono text-zinc-300">
+                TENANT A
+              </div>
+              <div className="border border-emerald-500/60 bg-emerald-500/10 px-2.5 py-1 text-[10px] font-mono text-emerald-300">
+                CORE ROUTER
+              </div>
+              <div className="border border-border bg-secondary/50 px-2.5 py-1 text-[10px] font-mono text-zinc-300">
+                TENANT B
+              </div>
+            </div>
+            <span className="font-display text-lg font-bold text-foreground">
+              Multi-Tenant Foundation Core
+            </span>
+            <span className="font-mono text-xs text-zinc-400 mt-0.5">
+              ISOLATED WORKSPACE ARCHITECTURE
+            </span>
+          </motion.div>
+        )}
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="relative z-10 flex items-center justify-between border-t border-border/80 pt-2 text-[10px] font-mono text-zinc-500">
+        <span>VERIFIED_SYSTEM</span>
+        <span className="text-zinc-300">{project.clientOrDomain}</span>
+      </div>
+    </div>
+  )
+}
 
 export function Projects() {
-  const gambitProject = projects.find((p) => p.id === 'pr-gambit-platform') || projects[0]
-  const telemetryProject = projects.find((p) => p.id === 'iot-telemetry-engine') || projects[1]
-  const automationProject = projects.find((p) => p.id === 'automation-engine') || projects[2]
-  const saasProject = projects.find((p) => p.id === 'saas-core-platform') || projects[3]
+  const [activeProjectId, setActiveProjectId] = useState<string>(projects[0].id)
+  const reduced = useIsReducedMotion()
+
+  const activeProject = projects.find((p) => p.id === activeProjectId) || projects[0]
 
   return (
     <section id="projects" className="relative mx-auto max-w-7xl px-6 w-full py-24 border-b border-border">
-      {/* Asymmetric Section Header */}
+      {/* Section Header */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-16 border-b border-border">
         <div className="lg:col-span-8">
           <span className="font-mono text-xs uppercase tracking-widest text-emerald-500 font-bold block mb-4">
-            04 // SELECTED ARCHITECTURES & CASE STUDIES
+            05 // INTERACTIVE CASE-STUDY SHOWCASE
           </span>
-          <Reveal>
-            <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-foreground leading-[1.1]">
-              Evidence of disciplined execution and enterprise architecture.
-            </h2>
-          </Reveal>
+          <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-foreground leading-[1.1]">
+            Evidence of disciplined execution and enterprise architecture.
+          </h2>
         </div>
 
         <div className="lg:col-span-4">
-          <Reveal delay={0.1}>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              A curated monograph of software systems, distributed pipelines, and platforms delivered across the 6th Civilians ecosystem.
-            </p>
-          </Reveal>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            A curated monograph of software systems, distributed pipelines, and platforms delivered across the 6th Civilians ecosystem. Select any project to inspect verified deliverables.
+          </p>
         </div>
       </div>
 
-      {/* Featured Case Study 01: Team Gambit Platform (Full-Width Asymmetric Monograph) */}
-      <div className="mt-14 border border-border bg-card/40">
-        <div className="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-border">
-          {/* Left Narrative (7 cols) */}
-          <div className="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-xs font-bold text-emerald-500">
-                  CASE STUDY // 01
-                </span>
-                <span className="h-1 w-1 rounded-full bg-zinc-600" />
-                <span className="font-mono text-[11px] text-zinc-400 uppercase">
-                  {gambitProject.clientOrDomain}
-                </span>
-              </div>
-
-              <h3 className="mt-4 font-display text-2xl sm:text-3xl font-bold text-foreground">
-                {gambitProject.title}
-              </h3>
-
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                {gambitProject.description}
-              </p>
-
-              {/* Architectural Highlights */}
-              <div className="mt-6 space-y-2.5">
-                {gambitProject.highlights.map((highlight) => (
-                  <div key={highlight} className="flex items-start gap-2.5 text-xs text-zinc-300 font-sans">
-                    <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-400 mt-0.5" />
-                    <span>{highlight}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Tags */}
-              <div className="mt-8 flex flex-wrap gap-2">
-                {gambitProject.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="border border-border bg-secondary/50 px-2.5 py-1 text-xs font-mono text-zinc-300"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {gambitProject.url && (
-              <div className="mt-8 pt-6 border-t border-border/50">
-                <a
-                  href={gambitProject.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-border bg-secondary/80 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-foreground transition-colors hover:border-zinc-500 hover:bg-secondary"
-                >
-                  <span>Access Live Platform</span>
-                  <ArrowUpRight className="h-4 w-4" />
-                </a>
-              </div>
-            )}
-          </div>
-
-          {/* Right Architecture Topology Console (5 cols) */}
-          <div className="lg:col-span-5 p-8 bg-zinc-950/60 flex flex-col justify-between font-mono text-xs">
-            <div>
-              <div className="flex items-center justify-between border-b border-border pb-3 text-[11px] text-zinc-400">
-                <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
-                  <Terminal className="h-3.5 w-3.5" />
-                  TOPOLOGY_SPEC // GAMBIT_PORTAL
-                </span>
-                <span>EDGE_RENDERED</span>
-              </div>
-
-              <div className="my-6 space-y-3">
-                <div className="border border-border/60 bg-secondary/30 p-3">
-                  <span className="text-[10px] text-zinc-500 block mb-1">FRONTEND ARCHITECTURE</span>
-                  <span className="text-zinc-200 font-semibold block">Next.js 14 / TypeScript / Tailwind Core</span>
-                  <span className="text-[11px] text-zinc-400 mt-1 block">Sub-second page transitions & edge caching</span>
-                </div>
-
-                <div className="border border-border/60 bg-secondary/30 p-3">
-                  <span className="text-[10px] text-zinc-500 block mb-1">ASSET PIPELINE</span>
-                  <span className="text-zinc-200 font-semibold block">Automated Responsive WebP/AVIF Delivery</span>
-                  <span className="text-[11px] text-zinc-400 mt-1 block">Zero content layout shift (CLS: &lt;0.01)</span>
-                </div>
-
-                <div className="border border-border/60 bg-secondary/30 p-3">
-                  <span className="text-[10px] text-zinc-500 block mb-1">ACCESSIBILITY & SEO</span>
-                  <span className="text-emerald-400 font-semibold block">WCAG 2.1 AA Compliant</span>
-                  <span className="text-[11px] text-zinc-400 mt-1 block">Structured OpenGraph & metadata indexing</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-4 border-t border-border flex items-center justify-between text-[11px] text-zinc-500">
-              <span>STATUS: PRODUCTION</span>
-              <span className="text-emerald-500">VERIFIED UPTIME: 99.98%</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Two Complementary Case Studies Side-by-Side (6 cols / 6 cols) */}
-      <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 border border-border divide-y lg:divide-y-0 lg:divide-x divide-border bg-card/30">
-        {/* Case Study 02: Fleet Telemetry */}
-        <div className="p-8 sm:p-10 flex flex-col justify-between">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-xs font-bold text-emerald-500">
-                CASE STUDY // 02
-              </span>
-              <span className="h-1 w-1 rounded-full bg-zinc-600" />
-              <span className="font-mono text-[11px] text-zinc-400 uppercase">
-                {telemetryProject.clientOrDomain}
-              </span>
-            </div>
-
-            <h3 className="mt-4 font-display text-xl sm:text-2xl font-bold text-foreground">
-              {telemetryProject.title}
-            </h3>
-
-            <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-muted-foreground">
-              {telemetryProject.description}
-            </p>
-
-            <div className="mt-6 space-y-2">
-              {telemetryProject.highlights.map((highlight) => (
-                <div key={highlight} className="flex items-start gap-2 text-xs text-zinc-300">
-                  <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-400 mt-0.5" />
-                  <span>{highlight}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-8 pt-6 border-t border-border/50 flex flex-wrap items-center justify-between gap-3">
-            <div className="flex flex-wrap gap-1.5">
-              {telemetryProject.tags.map((t) => (
-                <span key={t} className="text-[11px] font-mono text-zinc-400 border border-border bg-secondary/40 px-2 py-0.5">
-                  {t}
-                </span>
-              ))}
-            </div>
-            <span className="font-mono text-[11px] text-zinc-500">VERIFIED ARCHITECTURE</span>
-          </div>
-        </div>
-
-        {/* Case Study 03: Automation Engine */}
-        <div className="p-8 sm:p-10 flex flex-col justify-between">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-xs font-bold text-emerald-500">
-                CASE STUDY // 03
-              </span>
-              <span className="h-1 w-1 rounded-full bg-zinc-600" />
-              <span className="font-mono text-[11px] text-zinc-400 uppercase">
-                {automationProject.clientOrDomain}
-              </span>
-            </div>
-
-            <h3 className="mt-4 font-display text-xl sm:text-2xl font-bold text-foreground">
-              {automationProject.title}
-            </h3>
-
-            <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-muted-foreground">
-              {automationProject.description}
-            </p>
-
-            <div className="mt-6 space-y-2">
-              {automationProject.highlights.map((highlight) => (
-                <div key={highlight} className="flex items-start gap-2 text-xs text-zinc-300">
-                  <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-400 mt-0.5" />
-                  <span>{highlight}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-8 pt-6 border-t border-border/50 flex flex-wrap items-center justify-between gap-3">
-            <div className="flex flex-wrap gap-1.5">
-              {automationProject.tags.map((t) => (
-                <span key={t} className="text-[11px] font-mono text-zinc-400 border border-border bg-secondary/40 px-2 py-0.5">
-                  {t}
-                </span>
-              ))}
-            </div>
-            <span className="font-mono text-[11px] text-zinc-500">VERIFIED ARCHITECTURE</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Case Study 04: SaaS Foundation Architecture (Full-Width Technical Dossier) */}
-      <div className="mt-8 border border-border bg-card/20 p-8 sm:p-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-8">
-            <span className="font-mono text-xs font-bold text-emerald-500 block mb-2">
-              CASE STUDY // 04 · ENTERPRISE CORE
+      {/* Interactive Case-Study Explorer Layout */}
+      <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Left Column: Project Directory List (5 cols) */}
+        <div className="lg:col-span-5 flex flex-col gap-2">
+          <div className="flex items-center justify-between px-1 mb-2">
+            <span className="text-[10px] font-semibold uppercase tracking-wider text-zinc-500 font-mono">
+              PROJECT DOSSIER
             </span>
-            <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground">
-              {saasProject.title}
-            </h3>
-            <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground">
-              {saasProject.description}
-            </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {saasProject.tags.map((tag) => (
-                <span key={tag} className="border border-border bg-secondary/40 px-2.5 py-1 text-xs font-mono text-zinc-300">
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <span className="text-[10px] font-mono text-emerald-500 font-semibold">4 VERIFIED SYSTEMS</span>
           </div>
 
-          <div className="lg:col-span-4 border-t lg:border-t-0 lg:border-l border-border pt-6 lg:pt-0 lg:pl-8 space-y-2 font-mono text-xs text-zinc-300">
-            {saasProject.highlights.map((h) => (
-              <div key={h} className="flex items-start gap-2">
-                <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-400 mt-0.5" />
-                <span>{h}</span>
-              </div>
-            ))}
+          <div className="flex flex-col gap-2">
+            {projects.map((p, idx) => {
+              const isActive = p.id === activeProjectId
+              return (
+                <button
+                  key={p.id}
+                  onClick={() => setActiveProjectId(p.id)}
+                  onMouseEnter={() => setActiveProjectId(p.id)}
+                  className={`group relative flex flex-col p-5 border text-left transition-all duration-200 cursor-pointer ${
+                    isActive
+                      ? 'border-emerald-500 bg-emerald-500/10 text-foreground'
+                      : 'border-border bg-card/40 text-muted-foreground hover:border-zinc-500 hover:bg-card hover:text-foreground'
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span
+                      className={`font-mono text-xs font-bold ${
+                        isActive ? 'text-emerald-400' : 'text-zinc-500'
+                      }`}
+                    >
+                      0{idx + 1} // {p.category}
+                    </span>
+                    <ChevronRight
+                      className={`h-4 w-4 transition-transform ${
+                        isActive ? 'text-emerald-400 translate-x-1' : 'text-zinc-600'
+                      }`}
+                    />
+                  </div>
+
+                  <h3
+                    className={`mt-2 font-display text-base sm:text-lg font-bold transition-all ${
+                      isActive ? 'text-foreground translate-x-1' : 'text-zinc-300'
+                    }`}
+                  >
+                    {p.title}
+                  </h3>
+
+                  <span className="mt-1 text-xs text-zinc-500 font-mono">
+                    {p.clientOrDomain}
+                  </span>
+
+                  {isActive && (
+                    <motion.div
+                      layoutId="project-active-rail"
+                      className="absolute -left-px top-0 bottom-0 w-1 bg-emerald-500"
+                      transition={{ duration: 0.2, ease: EASE }}
+                    />
+                  )}
+                </button>
+              )
+            })}
           </div>
+        </div>
+
+        {/* Right Column: Large Active Case Study Preview Monograph (7 cols) */}
+        <div className="lg:col-span-7">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeProject.id}
+              initial={reduced ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={reduced ? undefined : { opacity: 0, y: -12 }}
+              transition={{ duration: 0.25, ease: EASE }}
+              className="border border-border bg-card p-6 sm:p-8 flex flex-col justify-between"
+            >
+              <div>
+                {/* Active Directional Clip-Mask Preview */}
+                <div className="mb-6">
+                  <ProjectVisualFrame project={activeProject} />
+                </div>
+
+                {/* Meta row */}
+                <div className="flex items-center justify-between border-b border-border pb-3 mb-4">
+                  <span className="font-mono text-xs font-bold text-emerald-500 uppercase">
+                    {activeProject.category}
+                  </span>
+                  <span className="font-mono text-xs text-zinc-500">
+                    {activeProject.clientOrDomain}
+                  </span>
+                </div>
+
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground">
+                  {activeProject.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground font-sans">
+                  {activeProject.description}
+                </p>
+
+                {/* Highlights */}
+                <div className="mt-6 space-y-2.5">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block mb-1">
+                    VERIFIED ENGINEERING DELIVERABLES
+                  </span>
+                  {activeProject.highlights.map((h) => (
+                    <div key={h} className="flex items-start gap-2.5 text-xs text-zinc-200">
+                      <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-400 mt-0.5" />
+                      <span>{h}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Technology Tags */}
+                <div className="mt-6 pt-6 border-t border-border/60 flex flex-wrap gap-2">
+                  {activeProject.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="border border-border bg-secondary/50 px-2.5 py-1 text-xs font-mono text-zinc-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Action Footer */}
+              <div className="mt-8 pt-6 border-t border-border flex items-center justify-between">
+                <span className="font-mono text-xs text-zinc-500">
+                  STATUS: VERIFIED IN PRODUCTION
+                </span>
+
+                {activeProject.url ? (
+                  <a
+                    href={activeProject.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 border border-border bg-secondary px-4 py-2 text-xs font-semibold uppercase tracking-wider text-foreground hover:border-zinc-400 transition-colors"
+                  >
+                    <span>Launch Portal</span>
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </a>
+                ) : (
+                  <span className="font-mono text-xs text-emerald-500">
+                    CORE SYSTEM ARCHITECTURE
+                  </span>
+                )}
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>
