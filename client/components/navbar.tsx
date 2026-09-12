@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { Menu, X, ArrowUpRight, ArrowRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -89,18 +90,16 @@ export function Navbar() {
           {/* Desktop Actions Area with Premium Micro-Interactions */}
           <div className="hidden lg:flex items-center gap-2.5 sm:gap-3 shrink-0">
             {/* EDWTH ACADEMY BUTTON */}
-            <a
-              href={brand.academy.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative inline-flex items-center gap-1.5 rounded-full border border-[rgba(17,21,20,0.1)] bg-white/80 px-3.5 py-1.5 text-xs font-bold tracking-wide text-[#073B32] transition-all duration-300 ease-out hover:border-[#0B5D4F] hover:bg-white hover:shadow-sm"
+            <Link
+              href="/academy"
+              className="group relative inline-flex items-center gap-1.5 rounded-full border border-[rgba(17,21,20,0.1)] bg-white/80 px-3.5 py-1.5 text-xs font-bold tracking-wide text-[#073B32] transition-all duration-300 ease-out hover:border-[#FF7A18] hover:bg-white hover:shadow-sm"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-[#35D07F] transition-transform duration-300 group-hover:scale-125" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#FF7A18] transition-transform duration-300 group-hover:scale-125" />
               <span className="transition-transform duration-200 group-hover:translate-x-0.5">
                 EDWTH ACADEMY
               </span>
-              <ArrowUpRight className="h-3 w-3 text-[#525C58] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#073B32]" />
-            </a>
+              <ArrowRight className="h-3 w-3 text-[#525C58] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:text-[#FF7A18]" />
+            </Link>
 
             {/* TEAM GAMBIT BUTTON */}
             <a
@@ -202,19 +201,17 @@ export function Navbar() {
               className="flex flex-col gap-3 border-t border-[rgba(17,21,20,0.08)] pt-5"
             >
               {/* EDWTH ACADEMY */}
-              <a
-                href={brand.academy.url}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/academy"
                 onClick={() => setOpen(false)}
                 className="flex items-center justify-between rounded-xl border border-[rgba(17,21,20,0.1)] bg-white p-3.5 text-xs font-bold tracking-wide text-[#073B32] transition-colors hover:bg-[#E9EBE7]"
               >
                 <div className="flex items-center gap-2.5">
-                  <span className="h-2 w-2 rounded-full bg-[#35D07F]" />
+                  <span className="h-2 w-2 rounded-full bg-[#FF7A18]" />
                   <span>EDWTH ACADEMY</span>
                 </div>
-                <ArrowUpRight className="h-4 w-4 text-[#073B32]" />
-              </a>
+                <ArrowRight className="h-4 w-4 text-[#073B32]" />
+              </Link>
 
               {/* TEAM GAMBIT */}
               <a

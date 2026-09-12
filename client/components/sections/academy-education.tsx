@@ -1,8 +1,9 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { brand } from '@/data/content'
-import { ArrowUpRight, GraduationCap, Code2, ShieldCheck, Award, Users, Compass, BookOpen } from 'lucide-react'
+import { ArrowUpRight, ArrowRight, GraduationCap, Code2, ShieldCheck, Award, Users, Compass, BookOpen } from 'lucide-react'
 import { useIsReducedMotion, EASE } from '@/components/motion'
 
 export function AcademyEducation() {
@@ -68,15 +69,13 @@ export function AcademyEducation() {
             <p className="text-sm sm:text-base leading-relaxed text-[#525C58] mb-4">
               Our dedicated education division prepares students and aspiring developers for industry roles through hands-on, production-grade projects.
             </p>
-            <a
-              href={brand.academy.url}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/academy"
               className="inline-flex items-center gap-2 rounded-full bg-[#073B32] px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#0B5D4F]"
             >
               <span>VISIT EDWTH ACADEMY</span>
-              <ArrowUpRight className="h-3.5 w-3.5" />
-            </a>
+              <ArrowRight className="h-3.5 w-3.5 text-[#35D07F]" />
+            </Link>
           </div>
         </div>
 
