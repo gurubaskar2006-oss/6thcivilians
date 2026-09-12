@@ -91,7 +91,7 @@ export function Process() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-16 border-b border-border">
         <div className="lg:col-span-8">
           <span className="font-mono text-xs uppercase tracking-widest text-emerald-500 font-bold block mb-4">
-            06 // STRUCTURED DELIVERY LIFECYCLE
+            STRUCTURED DELIVERY LIFECYCLE
           </span>
           <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-foreground leading-[1.1]">
             A structured lifecycle from discovery to continuous scale.
@@ -125,6 +125,7 @@ export function Process() {
           {processSteps.map((step, idx) => {
             const isActive = idx === activeStepIndex
             const isPassed = idx < activeStepIndex
+            const NodeIcon = step.icon
 
             return (
               <button
@@ -132,11 +133,11 @@ export function Process() {
                 onClick={() => setActiveStepIndex(idx)}
                 onMouseEnter={() => setActiveStepIndex(idx)}
                 className="group flex flex-col items-center text-center focus:outline-none cursor-pointer"
-                aria-label={`Select stage ${step.step}: ${step.title}`}
+                aria-label={`Select stage: ${step.title}`}
               >
                 {/* Step Node Box */}
                 <div
-                  className={`relative flex h-12 w-12 items-center justify-center border font-mono text-xs font-bold transition-all duration-200 ${
+                  className={`relative flex h-12 w-12 items-center justify-center border transition-all duration-200 ${
                     isActive
                       ? 'border-emerald-500 bg-emerald-500/10 text-emerald-400'
                       : isPassed
@@ -144,7 +145,7 @@ export function Process() {
                       : 'border-border bg-background text-zinc-500 group-hover:border-zinc-500 group-hover:text-zinc-300'
                   }`}
                 >
-                  {step.step}
+                  <NodeIcon className="h-5 w-5" />
                   {isActive && (
                     <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 h-1 w-4 bg-emerald-500" />
                   )}
@@ -157,10 +158,6 @@ export function Process() {
                 >
                   {step.title}
                 </h3>
-
-                <span className="mt-1 text-[10px] font-mono uppercase tracking-wider text-emerald-500">
-                  PHASE {step.step}
-                </span>
               </button>
             )
           })}
@@ -186,7 +183,7 @@ export function Process() {
                     </div>
                     <div>
                       <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-500">
-                        PHASE {currentStep.step} // SPECIFICATION
+                        STAGE SPECIFICATION
                       </span>
                       <h4 className="font-display text-2xl font-bold text-foreground">
                         {currentStep.title}
@@ -239,11 +236,12 @@ export function Process() {
       <div className="mt-14 flex flex-col gap-5 lg:hidden">
         {processSteps.map((step) => {
           const info = stageDeliverables[step.step] || stageDeliverables['01']
+          const MobileIcon = step.icon
           return (
             <div key={step.step} className="border border-border bg-card p-6">
               <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center border border-border bg-secondary font-mono text-xs font-bold text-emerald-400">
-                  {step.step}
+                <div className="flex h-9 w-9 items-center justify-center border border-border bg-secondary text-emerald-400">
+                  <MobileIcon className="h-4 w-4" />
                 </div>
                 <div>
                   <h3 className="font-display text-lg font-bold text-foreground">

@@ -51,7 +51,7 @@ export function Contact() {
           {/* Left Column: Heading, Models, and Direct Email (5 cols) */}
           <div className="lg:col-span-5 flex flex-col">
             <span className="font-mono text-xs uppercase tracking-widest text-emerald-500 font-bold block mb-4">
-              08 // INITIATE CORPORATE ENGAGEMENT
+              INITIATE CORPORATE ENGAGEMENT
             </span>
 
             <Reveal>

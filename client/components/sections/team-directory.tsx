@@ -6,17 +6,12 @@ import { LinkedInIcon } from '@/components/social-icons'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { useIsReducedMotion, EASE } from '@/components/motion'
 
-function EditorialTeamCard({ member, index }: { member: Founder; index: number }) {
-  const paddedIndex = String(index + 1).padStart(2, '0')
-
+function EditorialTeamCard({ member }: { member: Founder; index: number }) {
   return (
     <div className="group relative h-full rounded-2xl border border-[rgba(17,21,20,0.08)] bg-white p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-[#0B5D4F] hover:shadow-lg hover:-translate-y-1">
       <div>
         {/* Editorial Index */}
         <div className="flex items-center justify-between border-b border-[rgba(17,21,20,0.06)] pb-4 mb-6">
-          <span className="font-mono text-sm font-bold text-[#0B5D4F] tracking-wider">
-            {paddedIndex}
-          </span>
           <span className="font-mono text-[10px] font-semibold uppercase tracking-widest text-[#525C58]">
             {member.role}
           </span>

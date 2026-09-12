@@ -118,7 +118,7 @@ function TransformationMetaphor({ activeStageId }: { activeStageId: string }) {
                 {/* Focal core */}
                 <circle cx="100" cy="100" r="5" fill="#10B981" />
               </svg>
-              <span className="mt-2 font-mono text-xs text-zinc-400">STAGE 01 // THE SEED CONCEPT</span>
+              <span className="mt-2 font-mono text-xs text-zinc-400">THE SEED CONCEPT</span>
             </motion.div>
           )}
 
@@ -140,7 +140,7 @@ function TransformationMetaphor({ activeStageId }: { activeStageId: string }) {
                 <line x1="100" y1="30" x2="100" y2="165" stroke="rgba(16,185,129,0.5)" strokeWidth="0.8" strokeDasharray="3 3" />
                 <line x1="40" y1="65" x2="160" y2="130" stroke="rgba(255,255,255,0.15)" strokeWidth="0.8" />
               </svg>
-              <span className="mt-2 font-mono text-xs text-zinc-400">STAGE 02 // ARCHITECTURAL STRUCTURE</span>
+              <span className="mt-2 font-mono text-xs text-zinc-400">ARCHITECTURAL STRUCTURE</span>
             </motion.div>
           )}
 
@@ -169,7 +169,7 @@ function TransformationMetaphor({ activeStageId }: { activeStageId: string }) {
 
                 <circle cx="100" cy="100" r="5" fill="#10B981" />
               </svg>
-              <span className="mt-2 font-mono text-xs text-zinc-400">STAGE 03 // APPLIED INTELLIGENCE</span>
+              <span className="mt-2 font-mono text-xs text-zinc-400">APPLIED INTELLIGENCE</span>
             </motion.div>
           )}
 
@@ -195,7 +195,7 @@ function TransformationMetaphor({ activeStageId }: { activeStageId: string }) {
                 <rect x="95" y="72" width="60" height="30" rx="2" fill="rgba(16,185,129,0.1)" stroke="#10B981" strokeWidth="1" />
                 <rect x="95" y="110" width="60" height="27" rx="2" fill="rgba(255,255,255,0.03)" stroke="#52525B" strokeWidth="0.8" />
               </svg>
-              <span className="mt-2 font-mono text-xs text-zinc-400">STAGE 04 // POLISHED DIGITAL PRODUCT</span>
+              <span className="mt-2 font-mono text-xs text-zinc-400">POLISHED DIGITAL PRODUCT</span>
             </motion.div>
           )}
 
@@ -216,7 +216,7 @@ function TransformationMetaphor({ activeStageId }: { activeStageId: string }) {
 
                 <circle cx="100" cy="100" r="8" fill="#10B981" />
               </svg>
-              <span className="mt-2 font-mono text-xs text-zinc-400">STAGE 05 // SUSTAINED ENTERPRISE VALUE</span>
+              <span className="mt-2 font-mono text-xs text-zinc-400">SUSTAINED ENTERPRISE VALUE</span>
             </motion.div>
           )}
         </AnimatePresence>
@@ -241,7 +241,7 @@ export function TechnologyVisualization() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-16 border-b border-border">
         <div className="lg:col-span-8">
           <span className="font-mono text-xs uppercase tracking-widest text-emerald-500 font-bold block mb-4">
-            03 // CONCEPTUAL TRANSFORMATION MODEL
+            CONCEPTUAL TRANSFORMATION MODEL
           </span>
           <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-foreground leading-[1.1]">
             From abstract concepts to engineered organizational reality.
@@ -271,10 +271,7 @@ export function TechnologyVisualization() {
               }`}
             >
               <div className="flex items-center justify-between w-full mb-3">
-                <span className={`font-mono text-xs font-bold ${isActive ? 'text-emerald-400' : 'text-zinc-500'}`}>
-                  {stage.step}
-                </span>
-                <Icon className={`h-4 w-4 ${isActive ? 'text-emerald-400' : 'text-zinc-500'}`} />
+                <Icon className={`h-5 w-5 ${isActive ? 'text-emerald-400' : 'text-zinc-500'}`} />
               </div>
               <span className={`font-display text-sm sm:text-base font-bold tracking-tight ${isActive ? 'text-foreground' : 'text-zinc-300'}`}>
                 {stage.label}
@@ -299,7 +296,7 @@ export function TechnologyVisualization() {
           <div>
             <div className="flex items-center justify-between border-b border-border pb-3 mb-5">
               <span className="font-mono text-xs font-bold text-emerald-500 uppercase">
-                PHASE {activeStage.step} // {activeStage.label}
+                {activeStage.label}
               </span>
               <span className="font-mono text-[10px] text-zinc-500">ENGINEERING LIFECYCLE</span>
             </div>

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 export default function Contact() {
   return (
@@ -15,7 +15,7 @@ export default function Contact() {
             Get in <span className="text-gradient">Touch</span>
           </motion.h2>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Have questions? Our team is here to help you navigate your educational journey.
+            Have questions? Contact our team directly.
           </p>
         </div>
 
@@ -39,10 +39,6 @@ export default function Contact() {
                 </div>
               </div>
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Phone Number</label>
-                <input type="tel" id="phone" className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-transparent focus:ring-2 focus:ring-brand-orange outline-none transition-all dark:text-white" placeholder="+1 (555) 000-0000" />
-              </div>
-              <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message</label>
                 <textarea id="message" rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-transparent focus:ring-2 focus:ring-brand-orange outline-none transition-all resize-none dark:text-white" placeholder="How can we help you?"></textarea>
               </div>
@@ -57,58 +53,26 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-12"
+            className="flex flex-col justify-center"
           >
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange flex-shrink-0">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-brand-charcoal dark:text-white mb-1">Our Location</h4>
-                  <a 
-                    href="https://www.google.com/maps/place/6th+Civilians+Corporation/@13.1502767,80.108339,17z/data=!3m1!4b1!4m6!3m5!1s0x3a526372c3280e7d:0x370d1d0182615b1a!8m2!3d13.1502715!4d80.1109139!16s%2Fg%2F11nvm95sp6?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-gray-600 dark:text-gray-400 hover:text-brand-orange dark:hover:text-brand-orange transition-colors"
-                  >
-                    6th Civilians Corporation<br />Chennai, India
-                  </a>
-                </div>
+            {/* Contact Info - Email Only */}
+            <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg border border-gray-100 dark:border-gray-700 space-y-6">
+              <div className="w-14 h-14 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange flex-shrink-0">
+                <Mail className="w-7 h-7" />
               </div>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange flex-shrink-0">
-                  <Phone className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-brand-charcoal dark:text-white mb-1">Call Us</h4>
-                  <p className="text-gray-600 dark:text-gray-400">+1 (800) 123-4567<br />Mon-Fri from 8am to 6pm</p>
-                </div>
+              <div>
+                <h4 className="text-2xl font-bold text-brand-charcoal dark:text-white mb-2">Email Us Directly</h4>
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6">
+                  For all admissions, course details, enrollment questions, and partnerships, reach out directly to our official email address.
+                </p>
+                <a 
+                  href="mailto:edwthacademy@gmail.com" 
+                  className="inline-flex items-center gap-3 px-5 py-4 rounded-2xl bg-brand-parchmentLight dark:bg-gray-700 text-brand-charcoal dark:text-white font-bold text-base hover:text-brand-orange transition-colors"
+                >
+                  <Mail className="w-5 h-5 text-brand-orange" />
+                  <span>edwthacademy@gmail.com</span>
+                </a>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange flex-shrink-0">
-                  <Mail className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-brand-charcoal dark:text-white mb-1">Email Us</h4>
-                  <p className="text-gray-600 dark:text-gray-400">hello@edwthacademy.com<br />admissions@edwthacademy.com</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Interactive Map */}
-            <div className="w-full h-64 bg-gray-200 dark:bg-gray-800 rounded-3xl overflow-hidden relative">
-              <iframe 
-                title="6th Civilians Corporation Location"
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                loading="lazy" 
-                allowFullScreen 
-                referrerPolicy="no-referrer-when-downgrade" 
-                src="https://maps.google.com/maps?q=6th+Civilians+Corporation&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              ></iframe>
             </div>
           </motion.div>
         </div>

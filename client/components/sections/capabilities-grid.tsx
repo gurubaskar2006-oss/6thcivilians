@@ -140,16 +140,13 @@ export function CapabilitiesGrid() {
               >
                 <div>
                   {/* Top Bar */}
-                  <div className="flex items-center justify-between mb-8">
+                  <div className="flex items-center mb-8">
                     <div
                       className="flex h-12 w-12 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-110"
                       style={{ backgroundColor: m.lightBg }}
                     >
                       <Icon className="h-6 w-6" style={{ color: m.accentColor }} strokeWidth={2} />
                     </div>
-                    <span className="font-mono text-sm font-bold text-[#073B32]">
-                      {m.number}
-                    </span>
                   </div>
 
                   {/* Title & Subtitle */}

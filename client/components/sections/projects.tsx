@@ -145,7 +145,7 @@ export function Projects() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-16 border-b border-border">
         <div className="lg:col-span-8">
           <span className="font-mono text-xs uppercase tracking-widest text-emerald-500 font-bold block mb-4">
-            05 // INTERACTIVE CASE-STUDY SHOWCASE
+            INTERACTIVE CASE-STUDY SHOWCASE
           </span>
           <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-foreground leading-[1.1]">
             Evidence of disciplined execution and enterprise architecture.
@@ -190,7 +190,7 @@ export function Projects() {
                         isActive ? 'text-emerald-400' : 'text-zinc-500'
                       }`}
                     >
-                      0{idx + 1} // {p.category}
+                      {p.category}
                     </span>
                     <ChevronRight
                       className={`h-4 w-4 transition-transform ${

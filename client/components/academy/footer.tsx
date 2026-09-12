@@ -27,17 +27,8 @@ export function AcademyFooter() {
               </span>
             </div>
             <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
-              Empowering Every Learner to rise above. EdWth Academy is the official education division of 6th Civilians Corporation, delivering immersive, production-grade engineering training.
+              Empowering Every Learner to rise above. We are dedicated to providing world-class education that transforms potential into success.
             </p>
-            <div className="pt-2">
-              <Link
-                href="/"
-                className="inline-flex items-center gap-1.5 text-xs font-mono text-[#FFB347] hover:underline"
-              >
-                <span>← 6th Civilians Corporate Portal</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -116,12 +107,10 @@ export function AcademyFooter() {
 
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-xs">
-            &copy; {currentYear} EdWth Academy · Division of 6th Civilians Corporation. All rights reserved.
+            &copy; {currentYear} EdWth Academy. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <Link href="/" className="text-gray-400 hover:text-white transition-colors text-xs">
-              Corporate Homepage
-            </Link>
+            <span className="text-gray-500 text-xs">Empowering Every Learner</span>
             <button
               onClick={scrollToTop}
               className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#FF7A18] transition-all cursor-pointer"

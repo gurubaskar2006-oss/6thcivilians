@@ -19,7 +19,7 @@ export function Industries() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-16 border-b border-border">
         <div className="lg:col-span-8">
           <span className="font-mono text-xs uppercase tracking-widest text-emerald-500 font-bold block mb-4">
-            04 // SECTOR EXPLORER & INDUSTRY DOMAINS
+            SECTOR EXPLORER & INDUSTRY DOMAINS
           </span>
           <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-foreground leading-[1.1]">
             Purpose-built technology applied across industry verticals.
@@ -60,13 +60,6 @@ export function Industries() {
                   }`}
                 >
                   <div className="flex items-center gap-3.5">
-                    <span
-                      className={`font-mono text-xs font-bold transition-colors ${
-                        isActive ? 'text-emerald-400' : 'text-zinc-500 group-hover:text-zinc-300'
-                      }`}
-                    >
-                      0{idx + 1}
-                    </span>
                     <IndIcon className={`h-4 w-4 transition-colors ${isActive ? 'text-emerald-400' : 'text-zinc-400 group-hover:text-zinc-200'}`} />
                     <span className="font-display text-sm font-semibold">
                       {ind.title}

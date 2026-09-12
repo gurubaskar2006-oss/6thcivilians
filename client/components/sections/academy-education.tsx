@@ -97,16 +97,13 @@ export function AcademyEducation() {
                 }}
               >
                 <div>
-                  <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center mb-6">
                     <div
                       className="flex h-12 w-12 items-center justify-center rounded-2xl transition-transform group-hover:scale-110"
                       style={{ backgroundColor: `${item.accent}18`, color: item.accent }}
                     >
                       <Icon className="h-6 w-6" strokeWidth={1.8} />
                     </div>
-                    <span className="font-mono text-xs font-bold text-[#525C58]">
-                      0{idx + 1}
-                    </span>
                   </div>
 
                   <h3 className="font-display text-xl font-bold text-[#111514] mb-2 group-hover:text-[#073B32] transition-colors">

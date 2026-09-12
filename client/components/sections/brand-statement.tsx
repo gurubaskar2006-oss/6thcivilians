@@ -111,13 +111,10 @@ export function BrandStatement() {
                 transition={{ duration: 0.5, delay: idx * 0.08, ease: EASE }}
                 className="group relative rounded-2xl border border-[rgba(17,21,20,0.08)] bg-white p-7 transition-all duration-300 hover:border-[#0B5D4F] hover:shadow-lg hover:-translate-y-1"
               >
-                <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center mb-6">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#F7F7F2] text-[#073B32] transition-colors group-hover:bg-[#073B32] group-hover:text-[#F7F7F2]">
                     <Icon className="h-5 w-5" strokeWidth={1.8} />
                   </div>
-                  <span className="font-mono text-xs font-bold text-[#0B5D4F]">
-                    [{pillar.num}]
-                  </span>
                 </div>
 
                 <h3 className="font-display text-lg font-bold text-[#111514] mb-2">

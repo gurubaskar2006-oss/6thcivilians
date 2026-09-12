@@ -140,10 +140,7 @@ export function Hero() {
       <div className="mt-14 w-full border-t border-[rgba(17,21,20,0.08)] bg-white/70 backdrop-blur-sm z-10">
         <div className="mx-auto max-w-7xl px-6 py-5 grid grid-cols-2 md:grid-cols-4 gap-6 divide-y md:divide-y-0 md:divide-x divide-[rgba(17,21,20,0.08)]">
           {pillars.map((item) => (
-            <div key={item.num} className="flex flex-col pt-3 md:pt-0 md:px-5 first:pl-0">
-              <span className="font-mono text-xs text-[#0B5D4F] font-bold mb-1">
-                [{item.num}]
-              </span>
+            <div key={item.title} className="flex flex-col pt-3 md:pt-0 md:px-5 first:pl-0">
               <span className="text-sm font-bold text-[#111514]">
                 {item.title}
               </span>

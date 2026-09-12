@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X, ArrowLeft, ArrowUpRight } from 'lucide-react'
+import { Menu, X, ArrowUpRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export function AcademyNavbar() {
@@ -27,23 +27,8 @@ export function AcademyNavbar() {
   }, [])
 
   return (
-    <>
-      {/* Top Corporate Back-Nav Bar */}
-      <div className="w-full bg-[#1A1A1A] text-white/80 text-xs py-2 px-4 sm:px-8 flex items-center justify-between border-b border-white/10 z-50 relative">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 hover:text-white transition-colors group"
-        >
-          <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-0.5" />
-          <span>Back to 6th Civilians Corporation</span>
-        </Link>
-        <span className="hidden sm:inline-block font-mono text-[11px] text-[#FFB347]">
-          OFFICIAL EDUCATION DIVISION
-        </span>
-      </div>
-
-      <nav
-        className={`sticky top-0 w-full z-40 transition-all duration-300 ${
+    <nav
+      className={`sticky top-0 w-full z-40 transition-all duration-300 ${
           isScrolled
             ? 'bg-white/95 backdrop-blur-md shadow-md border-b border-gray-200'
             : 'bg-white/80 backdrop-blur-sm border-b border-gray-100'
@@ -132,19 +117,11 @@ export function AcademyNavbar() {
                   >
                     Enroll Now
                   </Link>
-                  <Link
-                    href="/"
-                    onClick={() => setIsOpen(false)}
-                    className="w-full text-center border border-gray-300 text-gray-700 px-4 py-2.5 rounded-full font-medium text-xs"
-                  >
-                    ← Back to 6th Civilians Main Site
-                  </Link>
                 </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </nav>
-    </>
   )
 }

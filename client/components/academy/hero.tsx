@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
 export function AcademyHero() {
@@ -50,11 +50,6 @@ export function AcademyHero() {
             transition={{ duration: 0.7, ease: 'easeOut' }}
             className="lg:col-span-7 space-y-7 text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#FF7A18]/10 border border-[#FF7A18]/30 px-4 py-1.5 text-xs font-semibold text-[#FF7A18]">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>EDUCATION DIVISION OF 6TH CIVILIANS CORPORATION</span>
-            </div>
-
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold text-[#1A1A1A] leading-[1.08] tracking-tight">
               Empowering Every Learner to{' '}
               <span className="bg-gradient-to-r from-[#FF7A18] to-[#FFB347] bg-clip-text text-transparent">

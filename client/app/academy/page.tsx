@@ -11,15 +11,15 @@ import { AcademyContact } from '@/components/academy/contact'
 import { AcademyFooter } from '@/components/academy/footer'
 
 export const metadata: Metadata = {
-  title: 'EDWTH Academy | Education & Engineering Talent Division — 6th Civilians Corporation',
+  title: 'EdWth Academy | Empowering Every Learner to Rise',
   description:
-    'Empowering Every Learner to Rise. EdWth Academy provides practical, project-based engineering training, hands-on masterclasses, and career pathways backed by 6th Civilians Corporation.',
+    'Empowering Every Learner to Rise. EdWth Academy provides practical, project-based engineering training, hands-on masterclasses, and career pathways.',
   openGraph: {
-    title: 'EDWTH Academy | Education & Engineering Talent Division',
+    title: 'EdWth Academy | Empowering Every Learner to Rise',
     description:
-      'Empowering Every Learner to Rise. Practical, project-based software engineering training backed by 6th Civilians Corporation.',
+      'Empowering Every Learner to Rise. Practical, project-based software engineering training and career masterclasses.',
     url: 'https://6thcivilians.com/academy',
-    siteName: '6th Civilians Corporation',
+    siteName: 'EdWth Academy',
   },
 }
 

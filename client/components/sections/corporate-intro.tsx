@@ -23,7 +23,7 @@ function ScrollManifesto() {
   return (
     <div ref={containerRef} className="max-w-3xl">
       <span className="font-mono text-xs uppercase tracking-widest text-emerald-500 font-bold block mb-4">
-        01 // CORPORATE MANIFESTO & ETHOS
+        CORPORATE MANIFESTO & ETHOS
       </span>
 
       <p className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.14]">
@@ -146,10 +146,7 @@ export function CorporateIntro() {
                 className="group relative flex flex-col justify-between p-8 transition-colors duration-200 hover:bg-secondary/40"
               >
                 <div>
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-bold text-zinc-500 group-hover:text-emerald-400 transition-colors">
-                      0{idx + 1}
-                    </span>
+                  <div className="flex items-center">
                     <Icon className="h-4 w-4 text-zinc-400 group-hover:text-emerald-400 transition-colors" strokeWidth={1.75} />
                   </div>
 

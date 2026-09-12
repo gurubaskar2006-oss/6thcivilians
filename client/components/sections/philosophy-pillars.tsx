@@ -90,10 +90,6 @@ export function PhilosophyPillars() {
               }}
             >
               <div>
-                <span className="font-mono text-xs font-bold text-[#0B5D4F] block mb-4">
-                  [{p.num}]
-                </span>
-
                 <h3 className="font-display text-xl font-bold text-[#111514] mb-1 group-hover:text-[#073B32] transition-colors">
                   {p.title}
                 </h3>
@@ -108,7 +104,7 @@ export function PhilosophyPillars() {
 
               <div className="mt-8 pt-4 border-t border-[rgba(17,21,20,0.06)] flex items-center justify-between text-[11px] font-mono text-[#525C58]">
                 <span>CORE VALUE</span>
-                <span className="font-semibold text-[#073B32]">0{idx + 1}</span>
+                <span className="font-semibold text-[#073B32]">INTEGRITY</span>
               </div>
             </motion.div>
           ))}

@@ -135,7 +135,7 @@ export function EcosystemFlow() {
                 >
                   <div>
                     {/* Icon Node */}
-                    <div className="flex items-center justify-between mb-8">
+                    <div className="flex items-center mb-8">
                       <div
                         className="flex h-12 w-12 items-center justify-center rounded-xl transition-transform group-hover:scale-110"
                         style={{
@@ -145,9 +145,6 @@ export function EcosystemFlow() {
                       >
                         <Icon className="h-6 w-6" strokeWidth={1.8} />
                       </div>
-                      <span className="font-mono text-xs font-bold text-white/50">
-                        {node.step}
-                      </span>
                     </div>
 
                     <span className="font-mono text-[10px] uppercase tracking-wider block mb-2" style={{ color: node.accentColor }}>

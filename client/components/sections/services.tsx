@@ -54,7 +54,7 @@ export function Services() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-16 border-b border-border">
         <div className="lg:col-span-8">
           <span className="font-mono text-xs uppercase tracking-widest text-emerald-500 font-bold block mb-4">
-            02 // INTERACTIVE CAPABILITY EXPLORATION SYSTEM
+            INTERACTIVE CAPABILITY EXPLORATION SYSTEM
           </span>
           <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-foreground leading-[1.1]">
             Disciplined engineering capabilities structured for enterprise scale.
@@ -94,13 +94,6 @@ export function Services() {
                   }`}
                 >
                   <div className="flex items-center gap-3.5">
-                    <span
-                      className={`font-mono text-xs font-bold tracking-widest transition-colors ${
-                        isActive ? 'text-emerald-400' : 'text-zinc-500 group-hover:text-zinc-300'
-                      }`}
-                    >
-                      {group.number}
-                    </span>
                     <span
                       className={`font-display text-sm font-semibold transition-colors ${
                         isActive ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground'
@@ -155,7 +148,7 @@ export function Services() {
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="font-mono text-xs font-bold text-emerald-500 uppercase tracking-widest">
-                      SYSTEM CAPABILITY // {activeGroup.number}
+                      SYSTEM CAPABILITY
                     </span>
                     <span className="h-1 w-1 rounded-full bg-emerald-500/60" />
                     <span className="text-[11px] font-mono text-zinc-400 uppercase">ACTIVE SPECIFICATION</span>

@@ -88,7 +88,7 @@ export function About() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-16 border-b border-border">
         <div className="lg:col-span-8">
           <span className="font-mono text-xs uppercase tracking-widest text-emerald-500 font-bold block mb-4">
-            07 // CORPORATE GOVERNANCE & LEADERSHIP
+            CORPORATE GOVERNANCE & LEADERSHIP
           </span>
           <Reveal>
             <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-foreground leading-[1.1]">
@@ -111,9 +111,6 @@ export function About() {
         {corporateValues.map((val) => (
           <div key={val.title} className="p-6 flex flex-col justify-between">
             <div>
-              <span className="font-mono text-xs text-emerald-500 font-bold block mb-2">
-                [{val.code}]
-              </span>
               <h3 className="font-display text-base font-bold text-foreground">
                 {val.title}
               </h3>
