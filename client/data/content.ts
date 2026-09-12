@@ -47,7 +47,7 @@ export const brand = {
   academy: {
     name: 'EDWTH Academy',
     division: 'Education Division',
-    url: process.env.NEXT_PUBLIC_ACADEMY_URL || 'https://academy.6thcivilians.com/',
+    url: process.env.NEXT_PUBLIC_ACADEMY_URL || '/academy',
     tagline: 'Education, Training & Talent Development',
     description:
       'EDWTH Academy is our dedicated education division, providing practical, project-based training to prepare developers for industry engineering.',

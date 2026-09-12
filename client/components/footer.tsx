@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { ArrowUpRight, ArrowRight } from 'lucide-react'
 import { brand, capabilityGroups } from '@/data/content'
 import { Wordmark } from '@/components/logo'
@@ -140,20 +141,18 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href={brand.academy.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/academy"
                   className="group flex flex-col text-xs transition-colors hover:text-white"
                 >
                   <span className="inline-flex items-center gap-1 font-bold text-white group-hover:text-[#48DDEB]">
                     <span>EDWTH Academy</span>
-                    <ArrowUpRight className="h-3 w-3 text-white/60" />
+                    <ArrowRight className="h-3 w-3 text-white/60 group-hover:translate-x-0.5" />
                   </span>
                   <span className="text-[10px] text-white/60 mt-0.5 font-mono">
                     Education & Talent
                   </span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

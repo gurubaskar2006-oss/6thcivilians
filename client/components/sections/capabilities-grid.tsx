@@ -60,7 +60,7 @@ export function CapabilitiesGrid() {
       icon: GraduationCap,
       subItems: ['Practical Bootcamps', 'Real Project Experience', 'Career Mentorship', 'Skill Verification'],
       ctaLabel: 'Visit EDWTH Academy',
-      ctaHref: 'https://academy.6thcivilians.com/',
+      ctaHref: '/academy',
     },
     {
       id: 'digital-growth',

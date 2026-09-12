@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Users, GraduationCap, Cpu, Building2, Rocket, ArrowRight } from 'lucide-react'
@@ -191,15 +192,13 @@ export function EcosystemFlow() {
             </p>
           </div>
 
-          <a
-            href="https://academy.6thcivilians.com/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/academy"
             className="inline-flex items-center gap-2 rounded-full bg-[#35D07F] px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#073B32] transition-colors hover:bg-white shrink-0"
           >
             <span>EXPLORE EDWTH ACADEMY</span>
             <ArrowRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

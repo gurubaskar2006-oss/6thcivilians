@@ -41,6 +41,13 @@
   --color-warm-yellow: #F4D35E;
   --color-coral-accent: #FF795B;
 
+  /* EDWTH Academy Brand Tokens */
+  --color-brand-orange: #FF7A18;
+  --color-brand-orange-light: #FFB347;
+  --color-brand-charcoal: #1A1A1A;
+  --color-brand-parchment: #F3E3C3;
+  --color-brand-parchment-light: #F8EFD8;
+
   --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-display: var(--font-display), 'Space Grotesk', 'Syne', sans-serif;
   --font-mono: var(--font-mono), 'JetBrains Mono', monospace;
