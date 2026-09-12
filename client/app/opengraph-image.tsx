@@ -52,11 +52,13 @@ export default function Image() {
         >
           <div
             style={{
-              fontSize: 84,
+              fontSize: 64,
               fontWeight: 800,
-              letterSpacing: '-0.05em',
+              letterSpacing: '-0.04em',
               color: '#ffffff',
               marginBottom: 20,
+              textAlign: 'center',
+              padding: '0 40px',
             }}
           >
             {brand.name}

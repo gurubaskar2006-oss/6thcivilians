@@ -15,3 +15,7 @@ node_modules
 .DS_Store
 frames.zip
 output_frames/
+*.tsbuildinfo
+*.zip
+package-lock.json
+client/*.png

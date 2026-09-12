@@ -92,7 +92,7 @@ export function Team() {
         </Reveal>
         <Reveal delay={1}>
           <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">
-            The people steering 6th Civilians across engineering, design, hardware, and growth.
+            The people steering 6th Civilians Corporation across engineering, design, hardware, and growth.
           </p>
         </Reveal>
       </div>
