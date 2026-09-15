@@ -125,7 +125,9 @@ export function TeamDirectory() {
 
           <div className="relative z-10 shrink-0">
             <a
-              href="/pr-team"
+              href="https://pr.6thcivilians.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-xs font-bold uppercase tracking-wider text-[#073B32] shadow-md transition-all duration-300 hover:bg-[#35D07F] hover:text-[#073B32] active:scale-[0.98] group"
             >
               <span>MEET TEAM GAMBIT</span>

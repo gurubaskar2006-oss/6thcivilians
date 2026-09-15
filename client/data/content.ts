@@ -55,7 +55,7 @@ export const brand = {
   gambit: {
     name: 'Team Gambit',
     division: 'Strategic Outreach',
-    url: '/pr-team',
+    url: process.env.NEXT_PUBLIC_GAMBIT_URL || 'https://pr.6thcivilians.com',
     tagline: 'Strategic Communications & External Outreach',
     description:
       'Team Gambit manages public relations, brand storytelling, and strategic partnerships across our ecosystem.',

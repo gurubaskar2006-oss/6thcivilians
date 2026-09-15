@@ -128,7 +128,9 @@ export function Footer() {
             <ul className="mt-4 space-y-3.5">
               <li>
                 <a
-                  href="/pr-team"
+                  href="https://pr.6thcivilians.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex flex-col text-xs transition-colors hover:text-white"
                 >
                   <span className="inline-flex items-center gap-1 font-bold text-white group-hover:text-[#35D07F]">

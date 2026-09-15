@@ -103,7 +103,9 @@ export function Navbar() {
 
             {/* TEAM GAMBIT BUTTON */}
             <a
-              href="/pr-team"
+              href="https://pr.6thcivilians.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative inline-flex items-center gap-1.5 rounded-full border border-[rgba(17,21,20,0.1)] bg-white/80 px-3.5 py-1.5 text-xs font-bold tracking-wide text-[#073B32] transition-all duration-300 ease-out hover:border-[#0B5D4F] hover:bg-white hover:shadow-sm"
             >
               <span className="relative flex h-1.5 w-1.5">
@@ -215,7 +217,9 @@ export function Navbar() {
 
               {/* TEAM GAMBIT */}
               <a
-                href="/pr-team"
+                href="https://pr.6thcivilians.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
                 className="flex items-center justify-between rounded-xl border border-[rgba(17,21,20,0.1)] bg-white p-3.5 text-xs font-bold tracking-wide text-[#073B32] transition-colors hover:bg-[#E9EBE7]"
               >

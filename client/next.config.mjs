@@ -14,15 +14,17 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  async rewrites() {
+  async redirects() {
     return [
       {
         source: '/pr-team',
-        destination: `${process.env.PR_TEAM_URL || 'http://localhost:3001'}/pr-team`,
+        destination: 'https://pr.6thcivilians.com',
+        permanent: false,
       },
       {
         source: '/pr-team/:path*',
-        destination: `${process.env.PR_TEAM_URL || 'http://localhost:3001'}/pr-team/:path*`,
+        destination: 'https://pr.6thcivilians.com/:path*',
+        permanent: false,
       },
     ]
   },

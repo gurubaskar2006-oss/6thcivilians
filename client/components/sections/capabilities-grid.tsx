@@ -74,7 +74,7 @@ export function CapabilitiesGrid() {
       icon: Megaphone,
       subItems: ['Strategic PR', 'Brand Positioning', 'Institutional Relations', 'Community Outreach'],
       ctaLabel: 'Meet Team Gambit',
-      ctaHref: '/pr-team',
+      ctaHref: 'https://pr.6thcivilians.com',
     },
     {
       id: 'technology-services',
