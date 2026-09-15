@@ -6,10 +6,44 @@ import { Mail, CheckCircle2, ArrowRight } from 'lucide-react'
 
 export function AcademyContact() {
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [errorMsg, setErrorMsg] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSubmitted(true)
+    setIsSubmitting(true)
+    setErrorMsg('')
+
+    const formData = new FormData(e.currentTarget)
+    formData.append('access_key', '790a748b-739b-48fb-a7e7-35bf1ed94d92')
+    formData.append('from_name', 'EdWth Academy Contact Form')
+    formData.append('subject', 'New Enrollment Inquiry - EdWth Academy')
+
+    const object = Object.fromEntries(formData)
+    const json = JSON.stringify(object)
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: json,
+      })
+
+      const data = await res.json()
+      if (res.status === 200 || data.success) {
+        setSubmitted(true)
+      } else {
+        setErrorMsg(data.message || 'Failed to submit inquiry. Please try again or email us directly.')
+      }
+    } catch (error) {
+      console.error(error)
+      setErrorMsg('A network error occurred. Please try again or email us directly.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -50,7 +84,10 @@ export function AcademyContact() {
                 </p>
                 <button
                   type="button"
-                  onClick={() => setSubmitted(false)}
+                  onClick={() => {
+                    setSubmitted(false)
+                    setErrorMsg('')
+                  }}
                   className="inline-block text-xs font-bold text-[#FF7A18] underline cursor-pointer pt-2"
                 >
                   Send another inquiry
@@ -66,6 +103,7 @@ export function AcademyContact() {
                     <input
                       type="text"
                       id="name"
+                      name="name"
                       required
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 focus:bg-white focus:ring-2 focus:ring-[#FF7A18] focus:border-transparent outline-none transition-all text-sm"
                       placeholder="John Doe"
@@ -78,6 +116,7 @@ export function AcademyContact() {
                     <input
                       type="email"
                       id="email"
+                      name="email"
                       required
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 focus:bg-white focus:ring-2 focus:ring-[#FF7A18] focus:border-transparent outline-none transition-all text-sm"
                       placeholder="john@example.com"
@@ -91,6 +130,7 @@ export function AcademyContact() {
                   </label>
                   <select
                     id="program"
+                    name="program"
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 focus:bg-white focus:ring-2 focus:ring-[#FF7A18] focus:border-transparent outline-none transition-all text-sm"
                   >
                     <option value="full-stack">Full-Stack Web Development</option>
@@ -109,6 +149,7 @@ export function AcademyContact() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     rows={4}
                     required
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 focus:bg-white focus:ring-2 focus:ring-[#FF7A18] focus:border-transparent outline-none transition-all resize-none text-sm"
@@ -116,11 +157,16 @@ export function AcademyContact() {
                   />
                 </div>
 
+                {errorMsg && (
+                  <p className="text-red-500 text-xs font-semibold">{errorMsg}</p>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full py-4 bg-gradient-to-r from-[#FF7A18] to-[#FFB347] text-white font-bold rounded-xl hover:shadow-lg hover:shadow-[#FF7A18]/30 transition-all text-sm cursor-pointer"
+                  disabled={isSubmitting}
+                  className="w-full py-4 bg-gradient-to-r from-[#FF7A18] to-[#FFB347] text-white font-bold rounded-xl hover:shadow-lg hover:shadow-[#FF7A18]/30 transition-all text-sm cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Submit Inquiry
+                  {isSubmitting ? 'Submitting Inquiry...' : 'Submit Inquiry'}
                 </button>
               </form>
             )}

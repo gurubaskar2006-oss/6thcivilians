@@ -16,7 +16,6 @@ import {
   Server,
   FileCog,
   ArrowRight,
-  Download,
 } from 'lucide-react'
 import { AcademyNavbar } from '@/components/academy/navbar'
 import { AcademyFooter } from '@/components/academy/footer'
@@ -137,20 +136,9 @@ export default function CoursesPage() {
               Courses
             </span>
           </h1>
-          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
             Programs built around the highest-growth technology careers of 2026&ndash;2030, engineered to equip you with verifiable production skills.
           </p>
-          <div className="flex justify-center">
-            <a
-              href="/academy/assets/Futuristic_Jobs_2026-2030.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/15 hover:bg-[#FF7A18] text-white font-semibold text-xs uppercase tracking-wider transition-all border border-white/20"
-            >
-              <Download className="w-4 h-4" />
-              <span>Download Full Syllabus PDF</span>
-            </a>
-          </div>
         </div>
       </section>
 

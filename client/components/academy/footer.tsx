@@ -87,21 +87,19 @@ export function AcademyFooter() {
             </ul>
           </div>
 
-          {/* Corporation & Syllabus */}
+          {/* Admissions & Inquiries */}
           <div>
-            <h4 className="text-white font-bold text-sm tracking-wider uppercase mb-5">Syllabus PDF</h4>
+            <h4 className="text-white font-bold text-sm tracking-wider uppercase mb-5">Admissions & Inquiries</h4>
             <p className="text-gray-400 text-xs leading-relaxed mb-4">
-              Download our 2026-2030 future-ready tech career & syllabus overview.
+              Have questions about courses, cohort schedules, or admissions? Reach out to our team.
             </p>
-            <a
-              href="/academy/assets/Futuristic_Jobs_2026-2030.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/academy#contact"
               className="inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl bg-white/10 hover:bg-[#FF7A18] text-white text-xs font-semibold transition-all border border-white/15"
             >
-              <span>Download Careers PDF</span>
+              <span>Contact Admissions</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
+            </Link>
           </div>
         </div>
 
