@@ -143,8 +143,10 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <Link
-                  href="/academy"
+                <a
+                  href={brand.academy.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex flex-col text-xs transition-colors hover:text-white"
                 >
                   <span className="inline-flex items-center gap-1 font-bold text-white group-hover:text-[#48DDEB]">
@@ -154,7 +156,7 @@ export function Footer() {
                   <span className="text-[10px] text-white/60 mt-0.5 font-mono">
                     Education & Talent
                   </span>
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

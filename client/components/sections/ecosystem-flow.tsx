@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Users, GraduationCap, Cpu, Building2, Rocket, ArrowRight } from 'lucide-react'
 import { useIsReducedMotion, EASE } from '@/components/motion'
+import { brand } from '@/data/content'
 
 interface NodeItem {
   id: string
@@ -189,13 +190,15 @@ export function EcosystemFlow() {
             </p>
           </div>
 
-          <Link
-            href="/academy"
+          <a
+            href={brand.academy.url}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-[#35D07F] px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#073B32] transition-colors hover:bg-white shrink-0"
           >
             <span>EXPLORE EDWTH ACADEMY</span>
             <ArrowRight className="h-4 w-4" />
-          </Link>
+          </a>
         </div>
       </div>
     </section>

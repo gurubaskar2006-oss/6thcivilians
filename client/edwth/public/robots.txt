@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://edwthacademy.6thcivilians.com/sitemap.xml

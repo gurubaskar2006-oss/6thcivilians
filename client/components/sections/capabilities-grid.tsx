@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, ArrowUpRight, Globe, BrainCircuit, GraduationCap, Megaphone, Server, CheckCircle2 } from 'lucide-react'
 import { EASE, useIsReducedMotion } from '@/components/motion'
+import { brand } from '@/data/content'
 
 interface CapabilityModule {
   id: string
@@ -60,7 +61,7 @@ export function CapabilitiesGrid() {
       icon: GraduationCap,
       subItems: ['Practical Bootcamps', 'Real Project Experience', 'Career Mentorship', 'Skill Verification'],
       ctaLabel: 'Visit EDWTH Academy',
-      ctaHref: '/academy',
+      ctaHref: brand.academy.url,
     },
     {
       id: 'digital-growth',

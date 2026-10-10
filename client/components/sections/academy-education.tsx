@@ -69,13 +69,15 @@ export function AcademyEducation() {
             <p className="text-sm sm:text-base leading-relaxed text-[#525C58] mb-4">
               Our dedicated education division prepares students and aspiring developers for industry roles through hands-on, production-grade projects.
             </p>
-            <Link
-              href="/academy"
+            <a
+              href={brand.academy.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-[#073B32] px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#0B5D4F]"
             >
               <span>VISIT EDWTH ACADEMY</span>
               <ArrowRight className="h-3.5 w-3.5 text-[#35D07F]" />
-            </Link>
+            </a>
           </div>
         </div>
 

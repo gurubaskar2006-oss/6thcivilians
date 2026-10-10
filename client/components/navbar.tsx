@@ -90,8 +90,10 @@ export function Navbar() {
           {/* Desktop Actions Area with Premium Micro-Interactions */}
           <div className="hidden lg:flex items-center gap-2.5 sm:gap-3 shrink-0">
             {/* EDWTH ACADEMY BUTTON */}
-            <Link
-              href="/academy"
+            <a
+              href={brand.academy.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative inline-flex items-center gap-1.5 rounded-full border border-[rgba(17,21,20,0.1)] bg-white/80 px-3.5 py-1.5 text-xs font-bold tracking-wide text-[#073B32] transition-all duration-300 ease-out hover:border-[#FF7A18] hover:bg-white hover:shadow-sm"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-[#FF7A18] transition-transform duration-300 group-hover:scale-125" />
@@ -99,7 +101,7 @@ export function Navbar() {
                 EDWTH ACADEMY
               </span>
               <ArrowRight className="h-3 w-3 text-[#525C58] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:text-[#FF7A18]" />
-            </Link>
+            </a>
 
             {/* TEAM GAMBIT BUTTON */}
             <a
@@ -203,8 +205,10 @@ export function Navbar() {
               className="flex flex-col gap-3 border-t border-[rgba(17,21,20,0.08)] pt-5"
             >
               {/* EDWTH ACADEMY */}
-              <Link
-                href="/academy"
+              <a
+                href={brand.academy.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
                 className="flex items-center justify-between rounded-xl border border-[rgba(17,21,20,0.1)] bg-white p-3.5 text-xs font-bold tracking-wide text-[#073B32] transition-colors hover:bg-[#E9EBE7]"
               >
@@ -213,7 +217,7 @@ export function Navbar() {
                   <span>EDWTH ACADEMY</span>
                 </div>
                 <ArrowRight className="h-4 w-4 text-[#073B32]" />
-              </Link>
+              </a>
 
               {/* TEAM GAMBIT */}
               <a

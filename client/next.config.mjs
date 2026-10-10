@@ -15,6 +15,7 @@ const nextConfig = {
     unoptimized: true,
   },
   async redirects() {
+    const academyUrl = process.env.NEXT_PUBLIC_ACADEMY_URL || 'https://edwthacademy.6thcivilians.com'
     return [
       {
         source: '/pr-team',
@@ -24,6 +25,16 @@ const nextConfig = {
       {
         source: '/pr-team/:path*',
         destination: 'https://pr.6thcivilians.com/:path*',
+        permanent: false,
+      },
+      {
+        source: '/academy',
+        destination: academyUrl,
+        permanent: false,
+      },
+      {
+        source: '/academy/:path*',
+        destination: `${academyUrl}/:path*`,
         permanent: false,
       },
     ]
