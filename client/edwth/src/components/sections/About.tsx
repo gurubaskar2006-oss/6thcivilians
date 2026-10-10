@@ -5,10 +5,9 @@ import { BookOpen, Users, Trophy, Target } from 'lucide-react';
 
 export default function About() {
   const stats = [
-    { icon: <Users />, label: 'Students Taught', value: 10000, suffix: '+' },
     { icon: <BookOpen />, label: 'Active Courses', value: 50, suffix: '+' },
     { icon: <Trophy />, label: 'Success Rate', value: 98, suffix: '%' },
-    { icon: <Target />, label: 'Years Experience', value: 15, suffix: '+' },
+    { icon: <Target />, label: 'Specialized Tracks', value: 17, suffix: '+' },
   ];
 
   return (

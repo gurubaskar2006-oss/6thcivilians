@@ -130,8 +130,8 @@ export default function Courses() {
                 
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
                   <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 font-medium">
-                    <Users className="w-4 h-4" />
-                    {course.students} students
+                    <Clock className="w-4 h-4 text-brand-orange" />
+                    <span>{course.duration}</span>
                   </div>
                   <button className="flex items-center text-brand-orange font-semibold hover:text-brand-orangeLight transition-colors">
                     Enroll <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
