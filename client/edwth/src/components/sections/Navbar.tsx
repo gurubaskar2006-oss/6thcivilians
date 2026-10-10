@@ -13,6 +13,7 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Home', to: '/' },
     { name: 'About', to: '/#about' },
+    { name: 'Courses', to: '/#courses' },
     { name: 'Why Us', to: '/#why-us' },
     { name: 'Testimonials', to: '/#testimonials' },
     { name: 'Contact', to: '/#contact' },

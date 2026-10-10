@@ -1,99 +1,134 @@
-import { Link } from 'react-scroll';
-import { ArrowUp } from 'lucide-react';
+import { Link as RouterLink } from 'react-router-dom';
+import { ArrowUp, ArrowRight } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const handleScrollTo = (targetId: string) => {
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const quickLinks = [
+    { name: 'Home', to: '/' },
+    { name: 'About', to: '/#about', id: 'about' },
+    { name: 'Courses', to: '/#courses', id: 'courses' },
+    { name: 'Explore All Courses', to: '/courses' },
+    { name: 'Why Us', to: '/#why-us', id: 'why-us' },
+    { name: 'Testimonials', to: '/#testimonials', id: 'testimonials' },
+    { name: 'Contact', to: '/#contact', id: 'contact' },
+  ];
+
+  const programs = [
+    { name: 'Full-Stack Web Development', to: '/#courses' },
+    { name: 'Data Science & Analytics', to: '/#courses' },
+    { name: 'UI/UX Design Masterclass', to: '/#courses' },
+    { name: 'Cloud Computing Fundamentals', to: '/#courses' },
+    { name: 'AI & Machine Learning', to: '/#courses' },
+    { name: 'Cybersecurity Bootcamp', to: '/#courses' },
+  ];
+
   return (
     <footer className="bg-brand-charcoal pt-16 pb-8 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-12">
           
-          <div className="space-y-6">
+          {/* Brand info (5 columns) */}
+          <div className="lg:col-span-5 space-y-6">
             <div className="flex items-center gap-3">
               <img src="/logo-transparent.png" alt="EdWth Academy Logo" className="h-10 w-auto object-contain" />
               <span className="font-heading font-bold text-2xl text-white">
                 EdWth Academy
               </span>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Empowering Every Learner to rise above. We are dedicated to providing world-class education that transforms potential into success.
+            <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
+              Empowering Every Learner to rise above. We are dedicated to providing world-class, project-based engineering education that transforms potential into success.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-brand-orange hover:text-white transition-all text-xs font-bold">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              <a 
+                href="https://www.linkedin.com/in/sixth-civilians-3a2768432/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="LinkedIn"
+                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-brand-orange hover:text-white transition-all text-xs font-bold"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-brand-orange hover:text-white transition-all text-xs font-bold">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-brand-orange hover:text-white transition-all text-xs font-bold">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-brand-orange hover:text-white transition-all text-xs font-bold">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              <a 
+                href="https://www.instagram.com/_6th_civilians_?utm_source=qr&igsh=MWluMjhzMnA1MzN6cA==" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Instagram"
+                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-brand-orange hover:text-white transition-all text-xs font-bold"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               </a>
             </div>
           </div>
 
-          <div>
-            <h4 className="text-white font-bold mb-6">Quick Links</h4>
-            <ul className="space-y-4">
-              {['Home', 'About', 'Courses', 'Why Us', 'Testimonials', 'Contact'].map((item) => (
-                <li key={item}>
-                  <Link 
-                    to={item.toLowerCase().replace(' ', '-')}
-                    smooth={true}
-                    duration={500}
+          {/* Quick Links (3 columns) */}
+          <div className="lg:col-span-3">
+            <h4 className="text-white font-bold mb-6 tracking-wide">Quick Links</h4>
+            <ul className="space-y-3.5">
+              {quickLinks.map((item) => (
+                <li key={item.name}>
+                  <RouterLink 
+                    to={item.to}
+                    onClick={() => item.id && handleScrollTo(item.id)}
                     className="text-gray-400 hover:text-brand-orange transition-colors cursor-pointer text-sm"
                   >
-                    {item}
-                  </Link>
+                    {item.name}
+                  </RouterLink>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-white font-bold mb-6">Programs</h4>
-            <ul className="space-y-4">
-              <li><a href="#" className="text-gray-400 hover:text-brand-orange transition-colors text-sm">Web Development</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-brand-orange transition-colors text-sm">Data Science</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-brand-orange transition-colors text-sm">UI/UX Design</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-brand-orange transition-colors text-sm">Digital Marketing</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-brand-orange transition-colors text-sm">Business Strategy</a></li>
+          {/* Programs (4 columns - direct to courses section) */}
+          <div className="lg:col-span-4">
+            <h4 className="text-white font-bold mb-6 tracking-wide">Programs & Curriculums</h4>
+            <ul className="space-y-3.5">
+              {programs.map((prog) => (
+                <li key={prog.name}>
+                  <RouterLink 
+                    to={prog.to} 
+                    onClick={() => handleScrollTo('courses')}
+                    className="text-gray-400 hover:text-brand-orange transition-colors text-sm flex items-center justify-between group"
+                  >
+                    <span>{prog.name}</span>
+                    <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-brand-orange" />
+                  </RouterLink>
+                </li>
+              ))}
             </ul>
-          </div>
-
-          <div>
-            <h4 className="text-white font-bold mb-6">Newsletter</h4>
-            <p className="text-gray-400 text-sm mb-4">
-              Subscribe to get the latest updates and course offers.
-            </p>
-            <form className="flex flex-col gap-3">
-              <input 
-                type="email" 
-                placeholder="Your email address" 
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-brand-orange transition-colors"
-              />
-              <button className="w-full px-4 py-3 bg-brand-orange hover:bg-brand-orangeLight text-white rounded-lg font-bold transition-colors">
-                Subscribe
-              </button>
-            </form>
+            <div className="mt-5 pt-4 border-t border-gray-800">
+              <RouterLink 
+                to="/courses"
+                className="inline-flex items-center gap-1.5 text-brand-orange hover:text-brand-orangeLight font-semibold text-xs transition-colors"
+              >
+                <span>View All 17+ Roles & Career Paths</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </RouterLink>
+            </div>
           </div>
 
         </div>
 
+        {/* Footer bottom bar */}
         <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm text-center md:text-left">
             &copy; {currentYear} EdWth Academy. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm text-gray-500">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            
-            <Link to="home" smooth={true} duration={500} className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-700 cursor-pointer ml-4 transition-all">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              aria-label="Back to top"
+              className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-700 cursor-pointer ml-4 transition-all"
+            >
               <ArrowUp className="w-5 h-5" />
-            </Link>
+            </button>
           </div>
         </div>
       </div>

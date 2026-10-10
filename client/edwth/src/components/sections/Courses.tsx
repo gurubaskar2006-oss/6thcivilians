@@ -59,7 +59,7 @@ export default function Courses() {
       description: 'Learn ethical hacking, network security, and how to defend against modern cyber threats.',
       icon: <Shield className="w-6 h-6" />,
       color: 'bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400',
-      image: 'https://images.unsplash.com/photo-1510511459019-5d0197411bc6?auto=format&fit=crop&w=600&q=80',
+      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80',
       duration: '12 Weeks',
       students: '1.8k',
       rating: '4.8'
